@@ -1,0 +1,3 @@
+<import src="../../utils/template/tabBar/tabBar.wxml" />
+
+<template is="activity" data="{{activity}}" />

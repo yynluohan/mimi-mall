@@ -1,0 +1,48 @@
+<view class="container">
+    <view>
+        <view class="profile-cell">
+            <view class="profile-cell-label">头像</view>
+            <view class="profile-cell-value" style="padding-right: 40rpx">
+                <image class="userinfo-avatar" src="{{users.avatar}}"></image>
+            </view>
+        </view>
+        <view class="profile-cell">
+            <view class="profile-cell-label">用户名</view>
+            <view class="profile-cell-value" style="padding-right: 40rpx">
+                {{users.name}}
+            </view>
+        </view>
+        <view class="profile-cell">
+            <view class="profile-cell-label">真实姓名</view>
+            <view class="profile-cell-value" style="padding-right: 40rpx">
+                <input bindinput="bindinput" value="{{profile.real_name}}" type="text"></input>
+            </view>
+        </view>
+        <view class="profile-cell">
+            <view class="profile-cell-label">出生年月</view>
+            <view class="profile-cell-value">
+                <picker class="picker-view" mode="date" data-picker-type="date" bindchange="pickerChange" end="{{nowDate}}" value="{{index}}">
+                    <view class="picker">
+                        <view>{{profile.birthday?profile.birthday:'请选择'}}</view>
+                        <view class="right-arrow"></view>
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="profile-cell">
+            <view class="profile-cell-label">性别</view>
+            <view class="profile-cell-value">
+                <picker data-picker-type="sex" bindchange="pickerChange" value="{{index}}" range="{{sexs}}">
+                    <view class="picker">
+                        <view wx:if="{{profile.sex==0}}">保密</view>
+                        <view wx:elif="{{profile.sex==1}}">男</view>
+                        <view wx:elif="{{profile.sex==2}}">女</view>
+                        <view wx:else>请选择</view>
+                        <view class="right-arrow"></view>
+                    </view>
+                </picker>
+            </view>
+        </view>
+    </view>
+</view>
+        <view class="foot-btn main-bg" bindtap="saveBtn" hover-class="button-hover">保存</view>

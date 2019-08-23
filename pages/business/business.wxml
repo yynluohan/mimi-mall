@@ -1,0 +1,82 @@
+<view class="container">
+    <block wx:if="{{records.length==0}}">
+        <view class="business-top">
+            <image mode="aspectFit" class="business-img" src="../../images/business.png"></image>
+            <view class="business-link main-color" bindtap="getTest">
+                <image mode="aspectFit" class="prompt-icon" src="../../images/prompt-icon.png"></image>
+                <view bindtap="openPage" data-url="../appoint/appoint?name=预约门店&store_type=store" data-open-type="navigate">您还暂未测试过，点击立即预约测试</view>
+            </view>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="test-view">
+            <image mode="aspectFit" class="business_model" src="../../images/business_model.png"></image>
+            <view class="item-test test-0" wx:if="{{testResult[0].flag}}">
+                <view>{{testResult[0].text}} <text class="main-color">{{testResult[0].value}}分</text></view>
+                <view class="item-border border-0"></view>
+            </view>
+            <!-- <view class="item-test test-1" wx:if="{{testResult[1].flag}}">
+                <view>{{testResult[1].text}} <text class="main-color">{{testResult[1].value}}分</text></view>
+            </view> -->
+            <view class="item-test test-2" wx:if="{{testResult[2].flag}}">
+                <view>{{testResult[2].text}} <text class="main-color">{{testResult[2].value}}分</text></view>
+                <view class="item-border border-2"></view>
+            </view>
+            <view class="item-test test-3" wx:if="{{testResult[3].flag}}">
+                <view class="item-border border-3"></view>
+                <view>{{testResult[3].text}} <text class="main-color">{{testResult[3].value}}分</text></view>
+            </view>
+            <!-- <view class="item-test test-4" wx:if="{{testResult[4].flag}}">
+                <view>{{testResult[4].text}} <text class="main-color">{{testResult[4].value}}分</text></view>
+            </view> -->
+            <view class="item-test test-5" wx:if="{{testResult[5].flag}}">
+                <view class="item-border border-5"></view>
+                <view>{{testResult[5].text}} <text class="main-color">{{testResult[5].value}}分</text></view>
+            </view>
+        </view>
+        <view class="ring-view" bindtap="goReport">
+            <view class="ring-head">
+                <view class="main-color">我的肌肤档案</view>
+                <view class="business-more">查看完整肌肤档案</view>
+            </view>
+            <view class="rings">
+                <view class="item-ring">
+                    <canvas disable-scroll="true" canvas-id="synthRing" class="ring-canvas"></canvas>
+					<!-- bindtouchstart="touchHandler" -->
+                </view>
+                <view class="item-ring" >
+                    <canvas disable-scroll="true" canvas-id="ageRing" class="ring-canvas"></canvas>
+					 <!-- bindtouchstart="touchHandler"   -->
+                </view>
+            </view>
+        </view>
+        <!-- <swiper bindchange="businessScroll" current-item-id="{{index}}" previous-margin="100rpx" next-margin="100rpx" circular="true">
+            <swiper-item class="swiper-item" bindtap="goReport" >
+                <view class="swiper-item-view">
+                    <view class="main-color">我的肌肤档案</view>
+                    <view >{{dossier[0].name}}</view>
+                    <view class="dossier-depict">{{dossier[0].text}}{{dossier[0].text}}</view>
+                </view>
+            </swiper-item>
+        </swiper> -->
+        <view class="prompt">
+            <view class="prompt-text main-color">你已经7天没有进行皮肤测试了</view>
+        </view>
+    </block>
+
+    <view class="business-nav">
+        <view wx:for="{{nav}}" class="item-nav " bindtap="clickNav" data-name="{{item.name}}" data-page="{{item.page}}" wx:if="{{item.status}}">
+            <image src="{{item.icon}}"></image>
+            <text class="nav-name">{{item.name}}</text>
+            <!-- <view class="border-right" wx:if="{{(index+1)%3!=0}}"></view> -->
+            <!-- <view class="border-bottom" wx:if="{{(index+1)/3 <= 1}}"></view> -->
+        </view>
+    </view>
+    <view>
+        <view wx:for="{{list}}" class="row-flex">
+            <view>{{item.name}}</view>
+            <view class="main-color">{{item.value}}</view>
+            <view class="row-btn">马上拯救</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,76 @@
+
+page {
+    height: 100%;
+}
+.container {
+    background: #000;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.img0 {
+    position: absolute;
+    top: 0;
+    width: 750rpx;
+    height: 80vh;
+    z-index: 5;
+    /* background-size: cover; */
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-attachment:fixed;
+}
+
+.img1 {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 750rpx;
+    height: 80vh;
+    z-index: 10;
+    /*background-size: cover;*/
+    /*background-repeat: no-repeat;*/
+
+    /*background-image: url('https://www.muaskin.com/images/meice/4-Pigmentation_thumb.png');*/
+}
+.img1-bg {
+    z-index: 10;
+    width: 750rpx;
+    height: 1000rpx;
+    /* background-size: cover; */
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-attachment:fixed;
+
+}
+
+.img0 image, .img1 image {
+    width: 750rpx;
+    height: 1000rpx;
+}
+
+.slider-view {
+    position: absolute;
+    bottom: 80rpx;
+    left: 0;
+    right: 0;
+    background: #000;
+}
+
+.shelter {
+    position: absolute;
+    top: 0;
+    width: 750rpx;
+    height: 1000rpx;
+    z-index: 15;
+}
+
+.shelter image {
+    width: 750rpx;
+    height: 1000rpx;
+}

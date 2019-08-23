@@ -1,0 +1,57 @@
+<!--index.wxml-->
+<view class="container">
+    <!-- <view class="userinfo" wx:if="{{userInfo.nickName}}"> -->
+    <view class="userinfo" wx:if="{{users}}">
+        <view class="user-left">
+            <!-- <button class="nickname-btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> {{userInfo.nickName}}</button> -->
+            <button class="nickname-btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> {{users.name}}</button>
+            <view class="member">
+                <!-- <image class="member-img" src="../../images/member.png"></image> -->
+                <image wx:if="{{ users.grade && users.grade.logo }}" class="member-img" src="{{users.grade.logos[0].url }}"></image>
+                <view>{{users.gradeName}}</view>
+            </view>
+        </view>
+        <!-- <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image> -->
+        <image class="userinfo-avatar" catchtap="openPage" data-page="../my-profile/my-profile" src="{{users.avatar}}" mode="cover"></image>
+    </view>
+    <view class="userinfo" wx:else>
+        <view class="user-left">
+            <button class="nickname-btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">获取授权</button>
+            <view class="member">
+                <!-- <image class="member-img" src="../../images/member.png"></image>
+                <view>砖石会员</view> -->
+            </view>
+        </view>
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="../../images/avatar.png" mode="cover"></image>
+    </view>
+    <blcok wx:if="{{!users.phone}}">
+        <view style="background-color:#F6F7FB;width:100%;height:20rpx"></view>
+        <view class="flex-row">
+            <view>绑定手机号码，成为会员</view>
+            <!-- <button class="phone-btn main-bg" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">立即绑定</button> -->
+            <button class="phone-btn main-bg" bindtap="bindPhone">立即绑定</button>
+        </view>
+    </blcok>
+    <blcok wx:if="{{users.phone}}">
+        <view style="background-color:#F6F7FB;width:100%;height:20rpx"></view>
+        <view class="flex-row">
+            <view>会员编号</view>
+            <view>{{users.vipNo}}</view>
+            <!-- <button class="phone-btn main-bg" bindtap="bindPhone">立即绑定</button> -->
+        </view>
+    </blcok>
+    <view style="background-color:#F6F7FB;width:100%;height:20rpx"></view>
+    <view class="menu">
+        <block wx:for="{{menu}}">
+            <view class="item-menu" bindtap="clickMenu" data-url="{{item.url}}" data-index="{{index}}" wx:if="{{item.status}}">
+                <image class="menu-img" src="{{item.img}}"></image>
+                <view>
+                    <text>{{item.name}}</text>
+                    <text class="menu-num" wx:if="{{index==1&&orderNum>0}}">{{ orderNum>99?'99+':orderNum}}</text>
+                    <text class="menu-num" wx:if="{{index==2&&carts.length>0}}">{{carts.length>99?'99+':carts.length}}</text>
+                    <text class="menu-num" wx:if="{{index==5&&couponNum>0}}">{{couponNum>99?'99+':couponNum}}</text>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>

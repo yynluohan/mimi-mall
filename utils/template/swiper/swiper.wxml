@@ -1,0 +1,22 @@
+<!--utils/template/swiper/swiper.wxml-->
+
+<template name="swiper">
+	
+	<view class="swiper-view">
+		<swiper class="banner-swiper">
+			
+			<block wx:for="{{swiperData}}">
+				<swiper-item>
+				<view>{{item.path}}</view>
+
+					<image class="swiper-img" src="../../images/swiper_1.jpg"></image>
+				</swiper-item>
+
+			</block>
+			
+
+		</swiper>
+
+	</view>
+
+</template>

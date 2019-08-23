@@ -1,0 +1,115 @@
+<import src="../../utils/template/tabBar/tabBar.wxml" />
+<import src="../../wxParse/wxParse.wxml"/>
+
+<view class="container" style="padding-bottom: 100rpx">
+
+    <template is="rectangle-swiper" data="{{detailImg}}" />
+    
+    <view class="store-head">
+        <view>{{store.name}}</view>
+        <view class="store-area">
+            <view class="main-color">{{store.district}}</view>
+            <!-- <view >{{store.range}}</view> -->
+            <block wx:if="{{item.distance}}">
+                <view class="range" wx:if="{{store.distance>=1000}}">{{store.distance/1000}}km</view>
+                <view class="range" wx:else>{{store.distance}}m</view>
+            </block>
+        </view>
+    </view>
+    <view style="background-color:#F6F7FB;width:100%;height:20rpx"></view>
+    <view class="left-3-row border-bottom" bindtap="openLocation">
+        <view class="row-left">
+            <image class="row-img" src="../../images/address3.png"></image>
+            <view>{{store.province}} {{store.city}} {{store.district}} {{store.address}}</view>
+        </view>
+        <view class="right-arrow"></view>
+    </view>
+    <view class="left-3-row " bindtap="callUp" data-telephone="{{store.telephone}}">
+        <view class="row-left">
+            <image class="row-img" src="../../images/phone3.png"></image>
+            <view>{{store.telephone}}</view>
+        </view>
+        <view class="right-arrow"></view>
+    </view>
+    <view style="background-color:#F6F7FB;width:100%;height:20rpx"></view>
+<!--     <view class="abstract">
+        <view class="abstract-link">简介</view>
+        <view class="abstract-text">{{store.abstract}}</view>
+    </view> -->
+    <view class="wxParse" wx:if="{{description.nodes}}">
+        <view class="description-link">简介</view>
+        <template is="wxParse" data="{{wxParseData:description.nodes}}"/>
+    </view> 
+    
+</view>
+<cover-view class="foot-btn" bindtap="chanMask" wx:if="{{title=='预约门店'&&!show}}" data-type-btn="appiont">立即预约</cover-view>
+
+<view class="popup-view {{show?'show':'hide'}}">
+    <view class="popup-mask {{runAM?'popup-mask-on': '' }}" bindtap="chanMask"></view>
+    <view class="popup-body {{runAM?'popup-body-on': '' }}">
+        <form bindsubmit="appiontStore">
+            <view class="popup-head">
+                <view>预约信息</view>
+                <text class="iconfont icon-guanbi close-icon"  bindtap="chanMask"></text>
+            </view>
+            <view class="form-row">
+                <view class="row-link">测试类型</view>
+                <view class="row-right">
+                    <checkbox-group bindchange="checkboxChange">
+                        <label class="checkbox-label" >
+                            <view class="item-checkbox" wx:for="{{listType}}" wx:key="*this">
+                                 <checkbox value="{{index}}" />{{item.type}}
+                            </view>
+                        </label>
+                    </checkbox-group>
+                </view>
+            </view>
+            <view class="form-row">
+                <view class="row-link">联系姓名</view>
+                <input type="text" name='name' value="{{users.real_name}}" />
+            </view>
+            <view class="form-row">
+                <view class="row-link">联系电话</view>
+                <input type="text" value="{{users.phone}}" name='phone' maxlength="11" />
+            </view>
+            <view class="form-row">
+                <view class="row-link">出生日期</view>
+                <picker class="placeholder-picker" mode="date" end="{{nowDate}}" bindchange="bindPickerChange" name="fieldC" data-picker-type="fieldC" wx:if="{{fieldC==''}}">
+                    {{users.birthday?users.birthday:'请选择'}}
+                </picker>
+                <picker class="picker" mode="date" end="{{nowDate}}" bindchange="bindPickerChange" name="fieldC" data-picker-type="fieldC" wx:else>
+                    {{fieldC}}
+                </picker>
+            </view>
+            <view class="form-row">
+                <view class="row-link">预约日期</view>
+                <picker class="placeholder-picker" mode="date" start="{{startDate}}" bindchange="bindPickerChange" name="appointDate" data-picker-type="appointDate" wx:if="{{appointDate==''}}">
+                    请选择
+                </picker>
+                <picker class="picker" mode="date" start="{{startDate}}" bindchange="bindPickerChange" name="appointDate" data-picker-type="appointDate" wx:else>
+                    {{appointDate}}
+                </picker>
+            </view>
+            <view class="form-row">
+                <view class="row-link">预约时间段</view>
+                <picker class="placeholder-picker" range="{{selTimePicker}}" value="{{timeIndex}}" bindchange="bindPickerChange" name="timeIndex" data-picker-type="timeIndex" >
+                    <view class="picker">
+                      {{selTimePicker[timeIndex]?selTimePicker[timeIndex]:'请选择'}}
+                    </view>
+                </picker>
+                <!-- wx:if="{{timeIndex==-1}}"
+                <picker class="picker" range="{{times}}" bindchange="bindPickerChange" name="timeIndex" value="{{timeIndex}}" data-picker-type="timeIndex" wx:else>
+                    {{times[index]}} -->
+                    <!-- <view class="picker">
+                      当前选择
+                    </view> -->
+                <!-- </picker> -->
+            </view>
+            <view class="form-row">
+                <view class="row-link">支付金额</view>
+                <input type="text" value="{{fee}}" disabled="true" name='payment'/>
+            </view>
+            <button class="main-bg form-btn" form-type="submit">确认并支付</button>
+        </form>
+    </view>
+</view>

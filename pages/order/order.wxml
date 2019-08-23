@@ -1,0 +1,72 @@
+<!--order.wxml-->
+<view class="container">
+    <view class="nav">
+        <view wx:for="{{ navArr }}" class="item-nav {{ lightIndex == index ? 'light':'' }}" bindtap="clickNav" data-index="{{ index }}" data-status="{{ item.status }}">
+            {{ item.title }}
+            <view class="nav-num" wx:if="{{index==1&&users.payPending>0}}">{{users.payPending}}</view>
+            <view class="nav-num" wx:if="{{index==2&&users.delivering>0}}">{{users.delivering}}</view>
+            <view class="nav-num" wx:if="{{index==3&&users.delivered>0}}">{{users.delivered}}</view>
+            <view class="nav-num" wx:if="{{index==4&&users.commentPending>0}}">{{users.commentPending}}</view>
+        </view>
+    </view>
+    <view style="background-color:#F6F7FB;width:100%;height:20rpx"></view>
+    <view wx:if="{{ orderList.length == 0 }}" class="no-data-view">
+        <image class="no-data-img" mode="aspectFit" src="../../images/no-order.png"></image>
+        <view class="no-data-text">无相关订单</view>
+    </view>
+    <view wx:else class="orderList">
+        <view wx:for="{{ orderList }}" class="item-order">
+            <view class="order-header">
+                <text>订单编号：{{ item.order_number }}</text>
+                <!-- <text class="order-status" wx:if="{{item.status==1}}">待付款</text> -->
+                <text class="order-status main-color">{{item.statusName}}</text>
+            </view>
+            <view class="goods">
+                <view class="item-good" bindtap="orderDetails" data-order-number="{{item.order_number}}" data-status-name="{{item.statusName}}" wx:for="{{item.order_items}}" wx:for-item="product">
+                    <image class="cover" mode="aspectFit" src="{{product.cover}}"></image>
+                    <view class="good-right">
+                        <text class="good-name">{{product.product_name}}</text>
+                        <view class="number-view">
+                            <text class="main-color">￥{{product.price}}</text>
+                            <text>x {{product.quantity}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="item-foot">
+                <view>共{{item.num}}件商品</view>
+                <view class="total-price">
+                    <text>总价：</text>
+                    <view class="main-color">￥{{item.total_price}}</view>
+                </view>
+            </view>
+            <view class="foot-btn">
+                <block wx:if="{{ item.status=='CLOSED_PAY_TIMEOUT'||item.status=='CLOSED_CANCELED'||item.status=='CLOSED_CONFIRMED'||item.status=='CLOSED_REFUNDED'}}">
+                    <view class="item-btn" catchtap="orderBtn" data-operation="delete" data-order-number="{{item.order_number}} ">删除订单</view>
+                </block>
+                <block wx:if="{{ item.status=='CONFIRMED_DELIVER_PENDING' }}">
+                    <view class="item-btn" catchtap="orderBtn" data-operation="reminder" data-order-number="{{item.order_number}} ">提醒发货</view>
+                </block>
+                <block wx:if="{{ item.status=='DELIVERED_CONFIRM_PENDING' }}">
+                    <view class="item-btn" catchtap="orderBtn" data-operation="confirm" data-order-number="{{item.order_number}}">确认收货</view>
+                </block>
+                <block wx:if="{{ item.status=='CREATED_PAY_PENDING' }}">
+                    <view class="item-btn main-bg" catchtap="orderBtn" data-operation="pay" data-order-number="{{item.order_number}}">去付款</view>
+                </block>
+                <block wx:if="{{ item.status=='CLOSED_CONFIRMED'&&!item.commented }}">
+                    <view class="item-btn main-bg" catchtap="orderBtn" data-operation="evaluate" data-order-number="{{item.order_number}}">评价</view>
+                </block>
+            </view>
+            <!-- <view class="order-footer" wx:if="{{item.status!='CLOSED_PAY_TIMEOUT'}}"> -->
+            <!--<view class="total_price">
+					总价： <text>￥{{item.total_price}}</text>
+				</view> -->
+            <!-- <view class="button-view">
+					<button type="default" bindtap="delOrder" wx:if="{{item.status=='CLOSED_PAY_TIMEOUT'}}" data-order-number="{{ item.order_number }}">删除订单</button>
+					<button wx:if="{{item.status == 'CREATED_PAY_PENDING'}}" data-order-number="{{ item.order_number }}" class="payment" bindtap="payment">立即付款</button>
+				</view> -->
+            <!-- </view> -->
+            <view style="background-color:#F6F7FB;width:100%;height:20rpx"></view>
+        </view>
+    </view>
+</view>

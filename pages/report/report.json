@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "我的肌肤报告",
+		"usingComponents": {
+			"ch-canvas": "../../ch-canvas/ch-canvas"
+		}
+}

@@ -1,0 +1,60 @@
+<view class="container">
+    <view class="date-view">
+        <view>预约测试时间：</view>
+        <view class="date main-color">{{appoint.appointmentTime}}</view>
+    </view>
+    <view style="background-color:#F6F7FB;width:100%;height:20rpx"></view>
+    <view class="appoint-view">
+        <text class="iconfont icon-dingdan icon-size"></text>
+        <view class="appoint-right">
+            <view class="flex-row">
+                <text>测试类型： </text>
+                <view class="main-color" wx:if="{{appoint.type=='SKIN'}}">测试皮肤</view>
+                <view class="main-color" wx:elif="{{appoint.type=='DNA'}}">DNA测试</view>
+                <view class="main-color" wx:else>测试皮肤、DNA测试</view>
+            </view>
+            <!-- <view class="flex-row">
+                <text>预约单号： </text>
+                <text>{{appoint.num}}</text>
+            </view> -->
+            <view class="flex-row">
+                <text>下单时间： </text>
+                <text>{{appoint.createTime}}</text>
+            </view>
+            <view class="flex-row">
+                <text>支付金额：</text>
+                <text wx:if="{{appoint.fee}}">￥{{appoint.fee}}</text>
+                <text wx:else>￥0</text>
+            </view>
+        </view>
+        <view class="status main-bg" wx:if="{{appoint.status=='WAIT_TO_STORE'}}">
+            <view class="status-text">待到店</view>
+        </view>
+        <view class="status main-bg" wx:if="{{appoint.status=='ALREADY_TO_STORE'}}">
+            <view class="status-text">已到店</view>
+        </view>
+        <view class="status " wx:if="{{appoint.status=='CANCELLED'}}">
+            <view>已取消</view>
+        </view>
+        <view class="status " wx:if="{{appoint.status=='EXPIRED'}}">
+            <view>已过期</view>
+        </view>
+    </view>
+    <view style="background-color:#F6F7FB;width:100%;height:10rpx"></view>
+    <view class="appoint-code">
+        <view>预约码</view>
+        <view class="code">{{appoint.code}}</view>
+    </view>
+    <view style="background-color:#F6F7FB;width:100%;height:20rpx"></view>
+    <view class="between-row">
+        <view>预约店铺</view>
+        <image mode="aspectFill" class="appoint-icon" src="../../images/address2.png"></image>
+    </view>
+    <view class="appoint-store">
+        <image mode="aspectFill" class="appoint-cover" src="{{appoint.itemIcon}}"></image>
+        <view class="appoint-right">
+            <view>{{appoint.itemName}}</view>
+            <view class="appoint-address">{{appoint.itemAddress}}</view>
+        </view>
+    </view>
+</view>

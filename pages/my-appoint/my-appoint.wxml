@@ -1,0 +1,43 @@
+<view class="container">
+    <view class="nav-view">
+        <view class="item-nav {{selIndex==index?'main-color':''}}" wx:for="{{nav}}" bindtap="selNav" data-index="{{index}}" >
+            {{item.name}}
+        </view>
+    </view>
+    <view class="appoint">
+        <view wx:if="{{ appoints.length == 0 }}" class="no-data-view">
+            <image class="no-data-img" mode="aspectFit" src="../../images/no-order.png"></image>
+            <view class="no-data-text">暂无预约</view>
+        </view>
+
+        <view class="item-appoint" wx:for="{{appoints}}" >
+            <view style="background-color:#F6F7FB;width:100%;height:20rpx"></view>
+
+            <view class="flex-row">
+                <view>测试类型：</view>
+                <view class="main-color" wx:if="{{item.type=='皮肤测试'}}">皮肤测试</view>
+                <view class="main-color" wx:elif="{{item.type=='DNA'}}">DNA测试</view>
+                <view class="main-color" wx:else>皮肤测试、DNA测试</view>
+            </view>
+            <!-- <view class="flex-row">
+                <view>预约单号：</view>
+                <view>{{item.num}}</view>
+            </view> -->
+            <view class="appoint-body" bindtap="appointDetails" data-id="{{item.id}}">
+                <image mode="aspectFill" class="appoint-cover" src="{{item.itemIcon}}"></image>
+                <view class="appoint-right">
+                    <view class="appoint-name">
+                        <view>{{item.itemName}}</view>
+                        <image mode="aspectFill" class="appoint-icon" src="../../images/address2.png"></image>
+                    </view>
+                    <view class="appoint-address">{{item.itemAddress}}</view>
+                </view>
+            </view>
+            <view class="foot-view">
+                <view>预约时间：{{item.earliestTime}} - <text>{{item.latestTime_s}}</text> </view>
+                <view class="foot-btn" catchtap="appointBtn" data-type="cancel" data-id="{{item.id}}" wx:if="{{item.status == 'WAIT_TO_STORE'}}">取消预约</view>
+                <view class="foot-btn" catchtap="appointBtn" data-type="delete" data-id="{{item.id}}" wx:else >删除预约</view>
+            </view>
+        </view>
+    </view>
+</view>

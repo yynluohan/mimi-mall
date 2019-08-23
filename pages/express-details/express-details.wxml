@@ -1,0 +1,23 @@
+<view class="container">
+    <view class="express-row">
+        <view class="express-name">{{express.name}}</view>
+        <view>{{express.num}}</view>
+    </view>
+    <view style="background-color:#F6F7FB;width:100%;height:20rpx"></view>
+
+    <view class="express-link">物流追踪</view>
+    <view class="express-node">
+        <view class="item-node" wx:for="{{express.nodes}}">
+            <view class="left-node">
+                <view>{{item.date}}</view>
+                <view class="node-time">{{item.time}}</view>
+            </view>
+            <view class="right-node">
+                <text class="node-icon {{item.status==1?'sign-in':''}}"></text>
+                <view>{{item.status}}</view>
+                <view>{{item.address}}</view>
+            </view>
+        </view>
+    </view>
+
+</view>

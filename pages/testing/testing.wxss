@@ -1,0 +1,158 @@
+.container {
+    background: #F6F7FB;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    font-size: 30rpx;
+}
+
+.no-data {
+    text-align: center;
+    color: #a6a6a6;
+    margin-top: 200rpx;
+}
+
+.no-data image {
+    width: 300rpx;
+    height: 300rpx;
+}
+
+.subject-view {
+    position: relative;
+    width: 700rpx;
+    height: 90%;
+    margin: 5% auto;
+    background: #fff;
+    border-radius: 25rpx;
+    box-shadow: 0px 0px 10px #c1cce9;
+    overflow-y: scroll;
+}
+.user-info {
+    position: relative;
+    width: 700rpx;
+    height: 90%;
+}
+
+.subject-tip {
+    position: relative;
+    padding: 40rpx 30rpx;
+}
+
+.subject-tip view {
+    line-height: 2;
+}
+
+.flex-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20rpx;
+    padding: 20rpx 0;
+    border-bottom: 2rpx solid #e5e5e5;
+    font-size: 30rpx;
+    color: #999;
+}
+
+.flex-row-value {
+    margin-right: 40rpx;
+}
+
+.picker {
+    margin-right: 30rpx;
+}
+
+.sex {
+    display: flex;
+}
+
+.sex view {
+    margin-right: 20rpx;
+    padding: 15rpx 30rpx;
+    border-radius: 10rpx;
+}
+
+.foot-btn {
+    /*position: absolute;*/
+    bottom: 50rpx;
+    left: 40rpx;
+    right: 40rpx;
+    /*right: 80rpx;*/
+    display: flex;
+    justify-content: space-between;
+    font-size: 30rpx;
+    letter-spacing: 2rpx;
+    margin-bottom: 30rpx;
+}
+.foot-btn view {
+    padding: 20rpx;
+}
+
+.subject-type {
+    font-size: 36rpx;
+}
+
+.subject-item {
+    position: relative;
+    padding: 40rpx 30rpx;
+}
+.subject-content text {
+    color: #ff8d1a;
+}
+
+.subject-options {
+    margin-top: 30rpx;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 100rpx;
+    position: relative;
+}
+
+.option-row {
+    margin: 20rpx 0;
+    padding: 16rpx 0;
+    box-shadow: 0 3px 3px 0 rgba(238,206,159,.3);
+    text-indent: 16rpx;
+}
+
+.option-item {
+    width: 45%;
+    text-align: center;
+    margin-top: 20rpx;
+    padding: 15rpx;
+}
+.option-item .option-img {
+    width: 250rpx;
+    height: 300rpx;
+}
+.sel-options {
+    /*background-color: #c28324;*/
+    box-shadow: 0 0 4px 0 #eece9f;
+}
+
+.submit-container {
+    text-align: center;
+    margin: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.submit-head {
+    text-align: center;
+    font-size: 40rpx;
+    letter-spacing: 2rpx;
+    margin-top: 150rpx;
+}
+.sub-subject-img {
+    width: 300rpx;
+    height: 150rpx;
+    margin-bottom: 20rpx;
+}
+
+.submit-container-btn {
+    width: 180rpx;
+    padding: 20rpx 30rpx;
+    border-radius: 14rpx;
+    margin: auto;
+}

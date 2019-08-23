@@ -1,0 +1,3 @@
+<!--pages/AI-test/index.wxml-->
+<text>pages/AI-test/index.wxml</text>
+    <web-view src="{{webUrl}}?uid={{users.uid}}" bindmessage="webMessage" bindload="webLoad" binderror="webError"/>

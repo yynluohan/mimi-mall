@@ -1,0 +1,352 @@
+
+.container {
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /* background-color: #F6F7FB; */
+}
+
+.test-view {
+    text-align: center;
+    /* background-color: #F6F7FB; */
+    position: relative;
+    font-size: 26rpx;
+}
+.business_model {
+    width: 450rpx;
+    border-radius: 0 0 230rpx 230rpx;
+}
+.item-test {
+    padding: 10rpx 20rpx;
+    border: 1rpx solid #ccc;
+    border-radius: 30rpx;
+    background-color: #FFF;
+}
+.item-border {
+    height: 2rpx;
+    background-color: #c28324;
+}
+.test-0 {
+    position: absolute;
+    top: 70rpx;
+    left: 70rpx;
+    vertical-align: top;
+    /*display: flex;*/
+}
+.border-0 {
+    width: 30rpx;
+    height: 2rpx;
+    background-color: #c28324;
+    position: relative;
+    left: 120rpx;
+    top: -20rpx;
+}
+.border-0:after {
+    content: '';
+    /*border-top: 1rpx solid #c28324;*/
+    width: 130rpx;
+    height: 2rpx;
+    background-color: #c28324;
+    position: absolute;
+    transform-origin: top left;
+    transform: rotate(60deg);
+    /*left: 120rpx;*/
+    vertical-align: middle;
+    margin-left: 15rpx;
+}
+.test-1 {
+    position: absolute;
+    top: 70rpx;
+    right: 70rpx;
+}
+.test-2 {
+    position: absolute;
+    top: 220rpx;
+    left: 70rpx;
+}
+.border-2 {
+    /*border-top: 1rpx solid #c28324;*/
+    width: 80rpx;
+    position: absolute;
+    top: 30rpx;
+    left: 180rpx;
+}
+.test-3 {
+    position: absolute;
+    top: 220rpx;
+    right: 70rpx;
+}
+.border-3 {
+    /*border-top: 1rpx solid #c28324;*/
+    width: 120rpx;
+    position: absolute;
+    right: 145rpx;
+    top: 20rpx;
+}
+.test-4 {
+    position: absolute;
+    top: 330rpx;
+    left: 70rpx;
+}
+.test-5 {
+    position: absolute;
+    top: 330rpx;
+    right: 70rpx;
+}
+.border-5 {
+    width: 30rpx;
+    background-color: #c28324;
+    position: relative;
+    top: 20rpx;
+    left: -30rpx;
+    /*left: 120rpx;
+    top: -20rpx;*/
+}
+.border-5:before {
+    /*border-bottom: 1rpx solid #c28324;*/
+    content: '';
+    width: 180rpx;
+    height: 2rpx;
+    background-color: #c28324;
+    position: absolute;
+    right: 30rpx;
+/*    right: 135rpx;
+    top: -35rpx;*/
+    transform-origin: bottom right;
+    transform: rotate(40deg);
+}
+
+.business-top {
+    /* background-color: #F6F7FB; */
+    text-align: center;
+    padding-top: 20rpx;
+}
+.business-img {
+    width: 680rpx;
+    height: 435rpx;
+    text-align: center;
+    border-radius: 20rpx 20rpx 0 0;
+}
+.prompt-icon {
+    width: 50rpx;
+    height: 50rpx;
+    margin-right: 30rpx;
+}
+.business-link {
+    width: 680rpx;
+    font-size: 26rpx;
+    background-color: #FFF;
+    margin: auto;
+    padding: 20rpx 0;
+    border-radius: 0 0 20rpx 20rpx;
+    margin-top: -10rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.business-scroll {
+    display: flex;
+    white-space: nowrap;
+    color: #333333;
+    font-size: 28rpx;
+    background-color: #F6F7FB;
+}
+.item-dossier {
+    display: inline-block;
+    width: 500rpx;
+    margin: 30rpx;
+    background-color: #FFF;
+}
+
+.dossier-text {
+    white-space: normal;
+}
+
+.sel {
+    color: red;
+}
+
+
+/*------swiper------*/
+
+swiper {
+    background-color: #F6F7FB;
+    margin-top: -20rpx;
+    height: 320rpx;
+    display: flex;
+    /*margin: 20rpx 0;*/
+}
+.swiper-view {
+    font-size: 30rpx;
+    width: 100%;
+    /*height: 300rpx;*/
+    background-color: #F6F7FB;
+
+}
+swiper-item {
+    width: 550rpx;
+    font-size: 30rpx;
+    /*position: static!important;*/
+    /*float: left;*/
+    /*border: 1rpx solid green;*/
+}
+.swiper-item-view {
+    margin: 0 30rpx;
+    margin-top: 20rpx;
+    padding: 20rpx;
+    /*border-radius: 20rpx;*/
+    background-color: #FFF;
+    box-shadow: 0px 0px 10px #666;
+    position: relative;
+}
+.lightSwiper {
+    /*margin: 0 30rpx;*/
+}
+.lightView {
+    /*border: 1rpx solid red;*/
+    margin: 0;
+    /*height: 80%;*/
+}
+
+.lightView view {
+    margin-bottom: 10rpx;
+}
+
+.dossier-depict {
+    font-size: 26rpx;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+}
+
+.prompt {
+    background-color: #F6F7FB;
+    padding: 30rpx;
+}
+
+.prompt-text {
+    font-size: 30rpx;
+    width: 500rpx;
+    background-color: #FFFAF4;
+    text-align: center;
+    padding: 20rpx;
+    margin: auto;
+    border-radius: 40rpx;
+    box-shadow: 0px 0px 5px 0px #ccc;
+
+}
+
+.business-nav {
+    display: flex;
+    flex-wrap: wrap;
+    /* background-color: #F6F7FB; */
+    color: #505050;
+    font-size: 30rpx;
+    padding-top: 30rpx;
+    margin: 20rpx;
+}
+.item-nav {
+    display: flex;
+    flex-direction: column;
+    width: 200rpx;
+    text-align: center;
+    position: relative;
+    padding-bottom: 30rpx;
+    background: #F6F7FB;
+    margin: 20rpx 10rpx 20rpx 20rpx;
+}
+.border-right {
+    position: absolute;
+    right: 0;
+    top: 10%;
+    height: 80%;
+    width: 2rpx;
+    background-color: #e5e5e5;
+}
+.border-bottom {
+    position: absolute;
+    left: 10%;
+    bottom: 0;
+    height: 2rpx;
+    width: 80%;
+    background-color: #e5e5e5;
+}
+/*.border-right:after {
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+    height: 60rpx;
+    width: 5px;
+    background-color: red;
+    border: 1rpx solid green;
+}*/
+.item-nav image {
+    width: 60rpx;
+    height: 60rpx;
+    text-align: center;
+    padding: 20rpx;
+    margin: auto;
+}
+
+.nav-name {
+}
+
+.row-flex {
+    display: flex;
+    justify-content: space-between;
+    font-size: 30rpx;
+    margin: 0 30rpx;
+    padding: 20rpx 0;
+    border-bottom: 2rpx solid #e5e5e5;
+    align-items: center;
+}
+
+.row-btn {
+    padding: 8rpx 20rpx;
+    border: 1rpx solid #6c6c6c;
+    font-size: 28rpx;
+    border-radius: 30rpx;
+}
+.ring-view {
+    width: 90%;
+    margin: 15rpx auto;
+    background: #FFF;
+    box-shadow: 0px 0px 5px 0px #c1cce9;
+    border-radius: 30rpx;
+}
+.ring-head {
+    display: flex;
+    justify-content: space-between;
+    font-size: 28rpx;
+    letter-spacing: 2rpx;
+}
+.ring-head view {
+    padding: 20rpx 30rpx;
+}
+.business-more {
+    padding: 20rpx;
+}
+.rings {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    /*height: 300rpx;*/
+    text-align: center;
+    overflow: hidden;
+}
+canvas.ring-canvas {
+    width: 170px!important;
+    height: 150px!important;
+    text-align: left;
+    /*border: 1rpx solid red;*/
+}
+.ring-canvas {
+
+/*    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;*/
+}

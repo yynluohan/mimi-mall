@@ -1,0 +1,21 @@
+/* utils/template/swiper/swiper.wxss */
+.swiper-view {
+  width: 100%;
+  height: 300rpx;
+  overflow: hidden;
+  margin: 30rpx 0;
+}
+
+.banner-swiper {
+  width: 90%;
+  margin: auto;
+} 
+
+swiper-item {
+  width: 100%;
+
+}
+
+.swiper-img {
+  width: 100%;
+}

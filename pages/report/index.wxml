@@ -1,0 +1,33 @@
+<!--pages/report/index.wxml-->
+<view class="container">
+    <view class="reportList" >
+        <block wx:for="{{reportList}}" wx:if="{{reportList.length}}">
+            <view class="item-report" bindtap='openPage' data-page="./report?testId={{item.id}}">
+                <view>
+                    <view class="flex-row">
+                        <view class="link">测试时间：</view>
+                        <view class="value">{{item.reportTime}}</view>
+                    </view>
+                    <view class="flex-row flex-row-2">
+                        <view class="link">测试结果：</view>
+                        <view class="value ">
+                            <view class="flex-row-value">
+                                <view class="link">综合得分</view>
+                                <view class="value main-color">{{item.synScore?item.synScore:0}}分</view>
+                            </view>
+                            <view class="flex-row-value">
+                                <view class="link">肌肤年龄</view>
+                                <view class="value main-color">{{item.synAge?item.synAge:0}}岁</view>
+                            </view>
+                        </view>
+                        
+                    </view>
+                </view>
+                <view class="right-arrow"></view>
+            </view>
+        </block>
+    </view>
+    <block  wx:if="{{reportList.length==0}}">
+		<view class="no-data">暂无测试记录</view>
+	</block>
+</view>

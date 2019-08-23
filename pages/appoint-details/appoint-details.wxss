@@ -1,0 +1,133 @@
+
+.container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #F6F7FB;
+}
+.date-view {
+    display: flex;
+    font-size: 30rpx;
+    align-items: center;
+    padding: 30rpx 20rpx;
+    border-top: 2rpx solid #cccccc;
+    color: #888888;
+    background-color: #FFF;
+
+}
+.date {
+    font-size: 40rpx;
+}
+.icon-size {
+    font-size: 60rpx;
+    margin: auto 20rpx;
+}
+
+.appoint-view {
+    display: flex;
+    /*padding: 30rpx 0;*/
+    font-size: 30rpx;
+    color: #333333;
+    position: relative;
+    overflow: hidden;
+    background-color: #FFF;
+}
+.flex-row {
+    display: flex;
+    margin: 20rpx 0;
+}
+
+.status {
+    background-color: #a6a6a6;
+    color: #FFFFFF;
+    font-size: 24rpx;
+    position: absolute;
+    right: 4rpx;
+    top: 20rpx;
+    height: 36rpx;
+    line-height: 36rpx;
+    /*-webkit-transform: rotate(45deg);*/
+    transform: rotate(45deg);
+}
+.status:before {
+    content: '';
+    position: absolute;
+    right: -48rpx;
+    bottom: 0;
+    display: block;
+    width: 50rpx;
+    height: 36rpx;
+    background-color: #a6a6a6;
+    /*background-color: #F2F2F2;*/
+    /*border-radius: 50%;*/
+    z-index: 100;
+}
+.status:after {
+    content: '';
+    position: absolute;
+    left: -48rpx;
+    top: 0;
+    display: block;
+    width: 50rpx;
+    height: 36rpx;
+    background-color: #a6a6a6;
+    /*background-color: #F2F2F2;*/
+    /*border-radius: 50%;*/
+    z-index: 100;
+}
+.main-bg:before {
+    background-color: #c28324;
+}
+.main-bg:after {
+    background-color: #c28324;
+}
+
+.appoint-code {
+    text-align: center;
+    font-size: 30rpx;
+    padding: 30rpx;
+    background-color: #FFF;
+}
+
+.code {
+    font-size: 50rpx;
+    padding: 60rpx 0;
+}
+
+.between-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 20rpx;
+    color: #888888;
+    font-size: 30rpx;
+    background-color: #FFF;
+}
+.appoint-icon {
+    width: 60rpx;
+    height: 60rpx;
+}
+.appoint-store {
+    display: flex;
+    padding-left: 30rpx;
+    font-size: 30rpx;
+    background-color: #FFF;
+    padding-bottom: 20rpx;
+}
+.appoint-cover {
+    width: 170rpx;
+    height: 130rpx;
+    border-radius: 10rpx;
+}
+.appoint-right {
+    margin-left: 30rpx;
+}
+.appoint-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #000;
+}
+.appoint-address {
+    width: 80%;
+    color: #888888;
+}

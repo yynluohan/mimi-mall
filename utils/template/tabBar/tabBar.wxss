@@ -1,0 +1,579 @@
+
+/*-----------------登录---------------*/
+
+.wx-popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0,0,0, 0.8);
+}
+
+.popup-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 80%;
+    max-width: 700rpx;
+    border-radius: 10rpx;
+    box-sizing: bordre-box;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    background: #FFF;
+    padding: 25rpx;
+}
+.login {
+    width: 75%;
+}
+
+.login-close-popup {
+    background: #fff;
+    opacity: 0.7;
+    border-radius: 50%;
+    color: #565656;
+    line-height: 20px;
+    text-align: center;
+    height: 20px;
+    width: 20px;
+    font-size: 18px;
+    padding: 20rpx;
+    /*float: right;*/
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.login-close-popup:before {
+    content: "\2716";
+}
+
+.login .float_tab {
+    width: 100%;
+    color: #000000;
+    font-size: 15px;
+    line-height: 1.8;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    flex-direction: column;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+}
+
+.login .float_tab .info1 {
+    color: #000000;
+    font-size: 16px;
+    line-height: 2;
+    text-indent: 40rpx;
+    margin-bottom: 20rpx;
+}
+
+.login .float_tab .info2 {
+    color: #000000;
+    font-size: 14px;
+    line-height: 1.8;
+    text-indent: 40rpx;
+}
+
+.login .float_tab .info3 {
+    color: #000000;
+    font-size: 14px;
+    line-height: 1.8;
+    text-indent: 40rpx;
+    border-bottom: 1px rgba(0, 0, 0, 0.15) solid;
+    padding-bottom: 20rpx;
+}
+
+.login .float_tab .info4 {
+    color: #333;
+    font-size: 30rpx;
+    line-height: 1.8;
+    text-indent: 40rpx;
+    margin-top: 20rpx;
+}
+
+.login .float_tab image {
+    width: 100%;
+    border-radius: 20rpx;
+}
+
+.login .float_button {
+    /*  top:70%;
+  left: 50rpx;
+  right: 50rpx;
+  margin:0rpx;
+  position: absolute;*/
+}
+
+.login .float_button button {
+    background-color: #4b0;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 2px;
+    font-size: 16px;
+    line-height: 45px;
+    height: 45px;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-align: center;
+}
+
+/*---------------登录样式结束------------------*/
+
+/* -----star-evaluate五星评价-----------*/
+.star-view {
+    display: flex;
+}
+
+.star-img {
+    width: 32rpx;
+    height: 32rpx;
+    margin-left: 20rpx;
+}
+
+
+/* -----star-evaluate五星评价-----------*/
+
+/*     tab-Bar-view 导航栏样式开始       */
+
+.tabBarView {
+    display: flex;
+    flex-wrap: nowrap;
+    text-align: center;
+    /*font-size: 0.6rem;*/
+    height: 10%;
+    background-color: #fff;
+    border-top: 1rpx solid #ccc;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    /*justify-content: space-around;*/
+    height: 62px;
+    font-family: microsoft yahei;
+}
+
+.tabBarItem {
+    margin: auto 20rpx;
+}
+
+.tabBarImg {
+    margin: auto;
+    margin-top: 0.3rem;
+    height: 32px;
+    width: 32px;
+}
+
+.tabBarText {
+    margin: auto;
+    margin-bottom: 0.3rem;
+}
+
+/*     tab-Bar-view 导航栏样式结束      */
+
+
+/*------------ shrink-tab-bar 导航栏样式开始  ------------*/
+
+.shrinkView {
+    display: flex;
+    position: fixed;
+    left: 30rpx;
+    bottom: 30rpx;
+    width: 100%;
+    align-items: center;
+}
+
+
+.mainImg {
+    border-radius: 50%;
+}
+
+.tab-shrink {
+    position: fixed;
+    bottom: 0;
+    left: 120rpx;
+    width: 100%;
+    z-index: 1000;
+    transform: translateX(-200%);
+    transition: 400ms;
+
+}
+
+.tab-shrink .tab-shrink-body {
+    display: flex;
+    position: fixed;
+    bottom: 46rpx;
+    left: 0;
+    border: 2rpx solid #FFFFFF;
+    border-radius: 14rpx;
+    padding: 5rpx 0;
+    /*height: 80rpx;*/
+    background: #f2f2f2;
+    /*padding-top: 60rpx;*/
+    /*transform: translateX(0);*/
+    transition: transform 400ms;
+}
+
+.tab-shrink.active {
+    transform: translateX(0);
+    background-color: red;
+}
+
+.tab-shrink.active .tab-shrink-body {
+    transform: translateX(0);
+    transition: transform 400ms;
+}
+
+.tab-shrink-text {}
+
+/*.tab-shrink {
+  
+  display: flex;
+  border-radius: 14rpx;
+  margin: auto;
+  align-items: center;
+  justify-content: space-around;
+  border: 2rpx solid #FFFFFF;
+  transform: translateX(0);
+  transition: transform 250ms;
+  }*/
+
+/*     ad-swiper 广告轮播图样式开始       */
+.ad-view {
+    width: 675rpx;
+    height: 314rpx;
+    margin: 0 auto;
+    /* margin-bottom: 20rpx; */
+}
+
+.ad-swiper {
+    width: 675rpx;
+    height: 314rpx;
+    margin: auto;
+}
+
+.ad-item {
+    width: 675rpx;
+    height: 314rpx;
+}
+
+.ad-img {
+    width: 675rpx;
+    height: 314rpx;
+    border-radius: 20rpx;
+}
+
+.no-swiper {
+    width: 100%;
+    height: 300rpx;
+    line-height: 300rpx;
+    background: #D9D9D9;
+    color: #888;
+    text-align: center;
+}
+
+/*     swiper 轮播图样式结束       */
+
+/*     details-swiper 详情轮播图样式开始       */
+.details-view {
+    width: 750rpx;
+    height: 690rpx;
+    margin-bottom: 20rpx;
+}
+
+.details-swiper {
+    width: 750rpx;
+    height: 690rpx;
+    margin: auto;
+}
+
+.details-item {
+    width: 750rpx;
+    height: 690rpx;
+}
+
+.details-img {
+    width: 750rpx;
+    height: 690rpx;
+}
+
+/*     swiper 轮播图样式结束       */
+/*     rectangle-swiper 详情轮播图样式开始       */
+.rectangle-view {
+    width: 100%;
+    height: 560rpx;
+    margin-bottom: 20rpx;
+}
+
+.rectangle-swiper {
+    width: 100%;
+    height: 560rpx;
+    margin: auto;
+}
+
+.rectangle-item {
+    width: 100%;
+    height: 560rpx;
+}
+
+.rectangle-img {
+    width: 100%;
+    height: 560rpx;
+}
+
+
+/*------------ nav导航栏样式开始 --------------*/
+
+.nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 28rpx;
+    text-align: center;
+    min-height: 150rpx;
+    /*color: #FFF;*/
+    letter-spacing: 6rpx;
+    padding-bottom: 20rpx;
+    padding-top: 20rpx;
+    background: #FFF;
+}
+
+.nav-icon {
+    width: 100rpx;
+    height: 100rpx;
+    margin-bottom: 10rpx;
+}
+
+
+/*------------ 导航栏样式结束 --------------*/
+
+
+/*-----------scroll-x-packge 导航样式开始-------------*/
+
+.scroll-x-packge {
+    display: inline-block;
+    /*width: 100%;*/
+    flex-direction: row;
+    white-space: nowrap;
+    color: #333333;
+    font-size: 28rpx;
+    overflow-x: scroll;
+    padding-left: 10rpx;
+}
+
+.item-packge {
+    padding: 10rpx 0;
+    margin: 0 20rpx;
+    display: inline-flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 10rpx 16rpx;
+}
+
+.item-packge-img {
+    width: 210rpx;
+    height: 210rpx;
+}
+
+.packge-name {
+    max-width: 180rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -webkit-box-orient: vertical;
+    padding: 10rpx 0;
+}
+.packge-price {
+    font-weight: both;
+}
+
+.packge-progress-line {
+  width: 100%;
+  position:relative;
+}
+
+.packge-bg-progress-line {
+  height: 4px;
+  border-radius: 10px;
+  background-color: #E7E7EA;
+  width:100%;
+}
+
+.packge-font-progress-line{
+  height: 4px;
+  border-radius: 10px;
+  background-color: #C28324;
+  position: relative;
+  top: -4px;
+}
+
+.packge-matchRage {
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 22rpx;
+}
+
+.myPackge-tip {
+    font-size: 30rpx;
+    text-align: center;
+    color: #888888;
+    letter-spacing: 2rpx;
+}
+.myPackge-tip .tip-text {
+    margin-top: 10rpx;
+}
+
+.index-appoint-btn {
+    width: 202rpx;
+    padding: 20rpx;
+    border: 1rpx solid #333;
+    border-radius: 20rpx;
+    margin: 30rpx auto;
+
+}
+
+
+/*-----------scroll-x-nav导航样式结束-------------*/
+
+/*-----------scroll-x-nav导航样式结束-------------*/
+
+.scroll-x-category {
+    display: inline-block;
+    /*width: 100%;*/
+    flex-direction: row;
+    white-space: nowrap;
+    color: #333333;
+    font-size: 28rpx;
+    overflow-x: scroll;
+}
+
+.item-category {
+    padding: 10rpx 0;
+    margin: 0 20rpx;
+    display: inline-flex;
+    text-align: center;
+}
+.category-light {
+    color: #c28324;
+    border-bottom: 6rpx solid #c28324;
+}
+
+/*-----------scroll-x-nav导航样式结束-------------*/
+
+
+/*------------ select下拉列表样式开始 --------------*/
+
+.select {
+    flex: 1;
+    z-index: 1000;
+}
+
+.select-view {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.select-option {
+    margin-right: 10rpx;
+    flex: 1;
+    text-align: right;
+}
+
+.select-arrow {
+    width: 0;
+    height: 0;
+    border-width: 15rpx 10rpx 0;
+    border-style: solid;
+    border-color: #333 transparent transparent;
+    margin: 40rpx auto;
+    position: relative;
+}
+
+.options-view {
+    background-color: #FFF;
+    z-index: 1000;
+    text-align: right;
+    width: 100%;
+    border-left: 2rpx solid #ccc;
+    border-right: 2rpx solid #ccc;
+    border-bottom: 2rpx solid #ccc;
+}
+
+.option {
+    line-height: 3;
+    padding-right: 30rpx;
+    border-bottom: 2rpx solid #ccc;
+
+}
+
+/*------------ select下拉列表样式结束 --------------*/
+/*---------- 活动样式开始 --------*/
+.activity-view {
+    display: flex;
+    flex-direction: column;
+}
+
+.activity-cover {
+    width: 750rpx;
+    height: 328rpx;
+}
+
+.activity-goods {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20rpx;
+
+}
+
+.activity-good {
+    width: 350rpx;
+    display: flex;
+    flex-direction: column;
+    font-size: 28rpx;
+    margin-bottom: 20rpx;
+}
+
+.good-img {
+    width: 100%;
+    height: 350rpx;
+}
+
+.good-name {
+    margin-top: 10rpx;
+    margin-bottom: 10rpx;
+}
+
+.good-price {
+    font-size: 40rpx;
+    color: #c28324;
+}
+
+/*---------- 活动样式结束 --------*/
+
+
+/*@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1533024376890');
+  src: url('iconfont.eot?t=1533024376890#iefix') format('embedded-opentype'),
+  url('data:application/x-font-woff;charset=utf-8;base64,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') format('woff'),
+  url('iconfont.ttf?t=1533024376890') format('truetype'), 
+  url('iconfont.svg?t=1533024376890#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:26px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-shouye:before { content: "\e600"; }
+
+.icon-weibiaoti1:before { content: "\e601"; }
+
+.icon-ai-home:before { content: "\e60d"; }
+
+*/

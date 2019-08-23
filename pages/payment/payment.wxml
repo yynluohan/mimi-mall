@@ -1,0 +1,38 @@
+<view class="container">
+    
+    <view class="payment-status">
+        <block wx:if="{{order.status == 'PAID_CONFIRM_PENDING' || order.status == 'CONFIRMED_DELIVER_PENDING' || order.status == 'CLOSED_CONFIRMED' || order.status == 'CANCELED_REFUND_PENDING' || order.status == 'CONFIRMED_PICK_PENDING' }}">
+            <text class="iconfont icon-wancheng icon-font"></text>
+            <view class="status-text">支付成功</view>
+            <view>￥{{order.total_price}}</view>
+        </block>
+        <block wx:elif="{{order.status == 'CREATED_PAY_PENDING' }}">
+            <text class="iconfont icon-yichang icon-font"></text>
+            <view class="status-text">支付失败</view>
+            <view class="pay-btn main-bg" bindtap="pay" data-order-number="{{order.order_number}}">重新支付</view>
+        </block>
+    </view>
+    <view class="flex-row">
+        <view class="row-link">商品：</view>
+        <view>
+            <view wx:for="{{order.order_items}}" class="good-item">
+                <view>{{item.product_name}}</view>
+                <view> x {{item.quantity}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="flex-row">
+        <view class="row-link">交易时间：</view>
+        <view>{{order.created_date}}</view>
+    </view>
+    <view class="flex-row">
+        <view class="row-link">订单号：</view>
+        <view>{{order.order_number}}</view>
+    </view>
+    <view class="warn-text">如对此订单有所疑问？请联系平台服务</view>
+    <view class="more-btn" wx:if="{{order.status == 'PAID_CONFIRM_PENDING' || order.status == 'CONFIRMED_DELIVER_PENDING' || order.status == 'CLOSED_CONFIRMED' || order.status == 'CANCELED_REFUND_PENDING' || order.status == 'CONFIRMED_PICK_PENDING' }}">查看更多商品</view>
+    <view class="foot-view">
+        <view class="foot-btn" bindtap="footBtn" data-url="/pages/index/index">返回首页</view>
+        <view class="foot-btn" bindtap="footBtn" data-url="../order-details/order-details?order_number={{order.order_number}}">订单详情</view>
+    </view>
+</view>

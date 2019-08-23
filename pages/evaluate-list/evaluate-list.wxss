@@ -1,0 +1,105 @@
+@import "../../utils/template/tabBar/tabBar.wxss";
+
+.menu-view {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 28rpx;
+    padding: 30rpx;
+    padding-bottom: 10rpx;
+    border-top: 2rpx solid #e5e5e5;
+    border-bottom: 2rpx solid #e5e5e5;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+}
+
+.item-menu {
+    padding: 10rpx 20rpx;
+    border-radius: 40rpx;
+    margin-bottom: 20rpx;
+    margin-right: 20rpx;
+    background-color: #F3F3F3;
+}
+
+/*--------评论---------*/
+
+.evaluations {
+    font-size: 28rpx;
+    letter-spacing: 2rpx;
+    flex: 1;
+    overflow-y: scroll;
+    margin-bottom: 50rpx;
+    height: 100%;
+    margin-top: 200rpx;
+}
+.evaluation-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80rpx;
+    color: #666;
+    padding: 0 20rpx;
+}
+.evaluation-more {
+    display: flex;
+    align-items: center;
+}
+.evaluation-more .right-arrow {
+    margin-left: 20rpx;
+}
+
+.item-evaluation {
+    padding: 20rpx;
+    border-bottom: 2rpx solid #e5e5e5;
+}
+.evaluation-user {
+    display: flex;
+    align-items: center;
+    color: #666;
+}
+.user-avatar {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    margin-right: 20rpx;
+}
+.user-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 26rpx;
+    height: 80rpx;
+}
+.evaluation-user .star-view {
+    margin: auto;
+    margin-right: 0;
+}
+.evaluation-content {
+    padding: 30rpx 0;
+}
+
+.evaluation-imgs {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.evaluation-imgs .item-img {
+    width: 180rpx;
+    height: 180rpx;
+}
+
+
+.no-data {
+    text-align: center;
+    color: #888;
+    margin-top: 20rpx;
+}
+
+.loadText {
+    font-size: 24rpx;
+    text-align: center;
+    color: #666;
+}

@@ -1,0 +1,76 @@
+{
+	"pages": [
+		"pages/index/index",
+		"pages/aaa/aaa",
+		"pages/previewImage/previewImage",
+		"pages/testing/testing",
+		"pages/evaluate/evaluate",
+		"pages/business/business",
+		"pages/report/report",
+		"pages/payment/payment",
+		"pages/register/register",
+		"pages/search/search",
+		"pages/appiont-status/appiont-status",
+		"pages/order/order",
+		"pages/appoint/appoint",
+		"pages/appoint-details/appoint-details",
+		"pages/express-details/express-details",
+		"pages/order-details/order-details",
+		"pages/store-details/store-details",
+		"pages/sub-order/sub-order",
+		"pages/product-details/product-details",
+		"pages/my-appoint/my-appoint",
+		"pages/category/category",
+		"pages/apply-back/apply-back",
+		"pages/my/my",
+		"pages/cart/cart",
+		"pages/address/address",
+		"pages/edit-address/edit-address",
+		"pages/coupon/coupon",
+		"pages/logs/logs",
+		"pages/activity/activity",
+		"pages/article/article",
+		"pages/evaluate-list/evaluate-list",
+		"pages/my-credit/my-credit",
+		"pages/my-friend/my-friend",
+		"pages/my-profile/my-profile",
+		"pages/report/index",
+		"pages/my-credit/credit-explain",
+		"pages/AI-test/index"
+	],
+	"window": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#fff",
+		"navigationBarTitleText": " i-Sotfto智慧美妆",
+		"navigationBarTextStyle": "black"
+	},
+	"tabBar": {
+		"selectedColor": "#c28324",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "丽器",
+				"iconPath": "./images/index.png",
+				"selectedIconPath": "./images/sel-index.png"
+			},
+			{
+				"pagePath": "pages/business/business",
+				"text": "肤质",
+				"iconPath": "./images/dna-test.png",
+				"selectedIconPath": "./images/sel-dna-test.png"
+			},
+			{
+				"pagePath": "pages/my/my",
+				"text": "我的",
+				"iconPath": "./images/my.png",
+				"selectedIconPath": "./images/sel-my.png"
+			}
+		]
+	},
+	"permission": {
+		"scope.userLocation": {
+			"desc": "你的位置信息将用于小程序位置接口的门店预约"
+		}
+	},
+	"sitemapLocation": "sitemap.json"
+}

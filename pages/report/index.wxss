@@ -1,0 +1,45 @@
+/* pages/report/index.wxss */
+
+.item-report {
+    padding: 30rpx;
+    border-bottom: 1rpx solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.flex-row {
+    display: flex;
+    align-items: center;
+    font-size: 30rpx;
+    padding: 16rpx 0;
+}
+.flex-row-2 {
+    align-items: flex-start;
+}
+.flex-row .link {
+    width: 170rpx;
+    margin-right: 30rpx;
+    color: #ccc;
+}
+.flex-row .value {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex-row-value {
+    display: flex;
+    align-items: center;
+    padding: 8rpx 0;
+    width: 100%;
+}
+.flex-row-value .link {
+    color: #000;
+}
+
+.no-data {
+	text-align: center;
+	color:#ccc;
+	margin-top:400rpx
+}

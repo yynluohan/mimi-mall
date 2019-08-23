@@ -1,0 +1,148 @@
+<view class="container">
+
+    <view class="order-status">
+        <view class="order-left">
+            <!-- <view class="status-text" >待付款</view> -->
+            <text class="status-text main-color" wx:for="{{statusArr}}" wx:if="{{item.status==order.status}}">
+                <block wx:if="{{order.status=='CLOSED_CONFIRMED'&&!order.commented}}">
+                    待评价
+                </block>
+                <block wx:elif="{{order.status=='CLOSED_CONFIRMED'&&order.commented}}">
+                    已完成
+                </block>
+                <block wx:else >
+                    {{item.name}}
+                </block>
+            </text>
+            <!-- <view>剩{{order.time}}分自动关闭</view> -->
+        </view>
+        <view class="order-right">
+            <!-- 待支付 -->
+            <block wx:if="{{order.status=='CREATED_PAY_PENDING'}}">
+                <image class="order-img" src="../../images/my/pay_penging@2x.png"></image>
+            </block>
+            <!-- 待发货 已支付 发货中 已发货 -->
+            <block wx:if="{{order.status=='CONFIRMED_DELIVER_PENDING'||order.status=='PAID_CONFIRM_PENDING'||order.status=='DELIVERING'||order.status=='DELIVERED_CONFIRM_PENDING'}}">
+                <image class="order-img" src="../../images/my/penging@2x.png"></image>
+            </block>
+            <!-- 关闭交易 -->
+            <block wx:if="{{order.status=='CLOSED_PAY_TIMEOUT'||order.status=='CLOSED_CANCELED'}}">
+                <image class="order-img" src="../../images/my/close_order@2x.png"></image>
+            </block>
+            <!-- 待评价 -->
+            <block wx:if="{{order.status=='CLOSED_CONFIRMED'&&!order.commented}}">
+                <image class="order-img" src="../../images/my/evaluate@2x.png"></image>
+            </block>
+            <!-- 已完成 -->
+            <block wx:if="{{order.status=='CLOSED_CANCELED'&&order.commented}}">
+                <image class="order-img" src="../../images/my/complete@2x.png"></image>
+            </block>
+        </view>
+    </view>
+    <block wx:if="{{order.status==2}}">
+        <view style="background-color:#F6F7FB;width:100%;height:20rpx"></view>
+        <view class="express" bindtap="expressDetails">
+            <text class="iconfont icon-kuaidi icon-size"></text>
+            <view class="express-right">
+                <view class="express-node">{{order.express.node}}</view>
+                <view class="express-time">{{order.express.time}}</view>
+            </view>
+            <view class="right-arrow"></view>
+        </view>
+    </block>
+    <view style="background-color:#F6F7FB;width:100%;height:20rpx"></view>
+    <view class="address-view">
+        <text class="iconfont icon-dizhi icon-size"></text>
+        <view class="address-right">
+            <view class="order-user">
+                <view class="user-name">{{order.contact_user}}</view>
+                <view>{{order.phone}}</view>
+            </view>
+            <view class="address-text">{{order.province}} {{order.city}}  {{order.district}} {{order.detail}}</view>
+        </view>
+    </view>
+    <view style="background-color:#F6F7FB;width:100%;height:20rpx"></view>
+    <view class="order-view">
+        <text class="iconfont icon-dingdan icon-size"></text>
+        <view class="order-right">
+            <view class="flex-row">
+                <text>订单状态： </text>
+
+                <text class="main-color" wx:for="{{statusArr}}" wx:if="{{item.status==order.status}}">{{item.name}}</text>
+            </view>
+            <view class="flex-row">
+                <text>订单编号： </text>
+                <text>{{order.order_number}}</text>
+            </view>
+            <view class="flex-row">
+                <text>下单时间： </text>
+                <text>{{order.created_date}}</text>
+            </view>
+        </view>
+    </view>
+    <view style="background-color:#F6F7FB;width:100%;height:20rpx"></view>
+    <view class="remark-view">
+        <text class="iconfont icon-liuyan icon-size"></text>
+        <view class="remark-text">
+            <view wx:if="{{order.remark==''}}">买家留言</view>
+            <view wx:else>{{order.remark}}</view>
+        </view>
+    </view>
+    <view style="background-color:#F6F7FB;width:100%;height:20rpx"></view>
+    <view class="goods" >
+        <view wx:for="{{order.order_items}}" class="item-good">
+            <image class="good-cover" src="{{item.cover}}" mode="aspectFill"></image>
+            <view class="good-right">
+                <view>{{item.product_name}}</view>
+                <view class="flex-view">
+                    <view class="good-price main-color">￥{{item.price}}</view>
+                    <view class='good-num'>x {{item.quantity}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view style="background-color:#F6F7FB;width:100%;height:20rpx"></view>
+    <view class="flex-row dis-pay">
+        <view>配送方式</view>
+        <block wx:if="{{order.delivery_type=='EXPRESS'}}">
+            <view>快递运输</view>
+        </block>
+        <block wx:if="{{order.delivery_type=='SELF_PICK'}}">
+            <view>自提门店</view>
+        </block>
+    </view>
+    <view style="background-color:#F6F7FB;width:100%;height:20rpx"></view>
+    <view class="census">
+        <view class="census-row">
+            <view class="row-link">商品金额</view>
+            <view class="row-value">￥{{product_price}}</view>
+        </view>
+        <view class="census-row">
+            <view class="row-link">运费</view>
+            <view class="row-value">￥{{order.freight}}</view>
+        </view>
+        <!-- <view class="census-row">
+            <view class="row-link">会员折扣</view>
+            <view class="row-value">￥1.00</view>
+        </view> -->
+        <view class="census-row border-top">
+            <view class="row-link">实付金额</view>
+            <view class="row-value payment main-color">￥{{order.total_price}}</view>
+        </view>
+    </view>
+</view>
+<view class="foot-view" >
+    <block wx:if="{{ order.status=='CLOSED_PAY_TIMEOUT'||order.status=='CLOSED_CANCELED'||order.status=='CLOSED_CONFIRMED'||order.status=='CLOSED_REFUNDED'}}" >
+        <view class="foot-btn" catchtap="orderBtn" data-operation="delete" data-order-number="{{order.order_number}} ">删除订单</view>
+    </block>
+    <block wx:if="{{ order.status=='CONFIRMED_DELIVER_PENDING' }}">
+        <view class="foot-btn" catchtap="orderBtn" data-operation="reminder" data-order-number="{{order.order_number}} " >提醒发货</view>
+    </block>
+    <block wx:if="{{ order.status=='CLOSED_CONFIRMED'&& !order.commented }}">
+        <view class="foot-btn" catchtap="orderBtn" data-operation="evaluate" data-order-number="{{order.order_number}}">评价</view>
+    </block>
+    <block wx:if="{{ order.status=='CREATED_PAY_PENDING' }}">
+        <view class="foot-btn main-bg" catchtap="orderBtn" data-operation="pay" data-order-number="{{order.order_number}}" >去付款</view>
+    </block>
+</view>
+

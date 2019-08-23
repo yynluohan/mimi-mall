@@ -1,0 +1,103 @@
+<view class="container">
+
+    <image class="report-bg" src="../../images/report-bg.png"></image>
+    <view class="block-view">
+        <view class="test-view">
+			<view class="test-list-link" bindtap='openPage' data-page="./index?phone={{users.phone}}">测试记录</view>
+            <image mode="aspectFit" class="business_model" src="../../images/business_model.png"></image>
+            <view class="item-test test-0" wx:if="{{testResult[0].flag}}">
+                <view>{{testResult[0].text}} <text class="main-color">{{testResult[0].value}}分</text></view>
+                <view class="item-border border-0"></view>
+            </view>
+            <view class="item-test test-1" wx:if="{{testResult[1].flag}}">
+                <view>{{testResult[1].text}} <text class="main-color">{{testResult[1].value}}分</text></view>
+            </view>
+            <view class="item-test test-2" wx:if="{{testResult[2].flag}}">
+                <view>{{testResult[2].text}} <text class="main-color">{{testResult[2].value}}分</text></view>
+                <view class="item-border border-2"></view>
+            </view>
+            <view class="item-test test-3" wx:if="{{testResult[3].flag}}">
+                <view class="item-border border-3"></view>
+                <view>{{testResult[3].text}} <text class="main-color">{{testResult[3].value}}分</text></view>
+            </view>
+            <view class="item-test test-4" wx:if="{{testResult[4].flag}}">
+                <view>{{testResult[4].text}} <text class="main-color">{{testResult[4].value}}分</text></view>
+            </view>
+            <view class="item-test test-5" wx:if="{{testResult[5].flag}}">
+                <view class="item-border border-5"></view>
+                <view>{{testResult[5].text}} <text class="main-color">{{testResult[5].value}}分</text></view>
+            </view>
+        </view>
+        <view class="ring-view">
+            <view class="item-ring">
+                <canvas disable-scroll="true" canvas-id="synthRing" class="ring-canvas" bindtouchstart="touchHandler" ></canvas>
+                <view class="ring-title">综合得分</view>
+            </view>
+            <view class="item-ring">
+                <canvas disable-scroll="true" canvas-id="ageRing" class="ring-canvas" bindtouchstart="touchHandler"></canvas>
+                <view class="ring-title">肤质年龄</view>
+            </view>
+        </view>
+        <view class="fs-test">
+            <view class="test-link">肤色：{{fs[fs_index].text}}</view>
+            <view class="fs-bg">
+                <view class="fs-item" wx:for="{{fs}}" wx:key="*this">
+                    <view class="item-bg {{index==fs_index?'sel-fs-bg':''}} {{index==0?'first-fs-bg':''}} {{index==7?'last-fs-bg':''}}" style="background:{{item.bg_color}}">{{index==fs_index?item.text:''}}</view>
+                    <view >{{index!=fs_index?item.text:''}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="radar-view">
+            <view class="test-link">综合雷达图</view>
+			<view class="fill-view">
+				<view class="item-fill">
+					<view class="fill-color" style="background:#f5c8b4"></view>
+					<view class="fill-text">预防护理</view>
+				</view>
+				<view class="item-fill">
+					<view class="fill-color" style="background:#e2ae97"></view>
+					<view class="fill-text">持续护理</view>
+				</view>
+				<view class="item-fill">
+					<view class="fill-color" style="background:#cd937a"></view>
+					<view class="fill-text">集中护理</view>
+				</view>
+			</view>
+
+  			<ch-canvas class="radar-canvas" canvasId='radar' id='radar'></ch-canvas>
+
+            <!-- <canvas disable-scroll="true" canvas-id="radarCanvas"  class="radar-canvas" bindtouchstart="touchHandler"></canvas> -->
+        </view>
+        <view class="evaluate" wx:if="{{testDetails.comment}}">
+            <view class="test-link">综合评价</view>
+            <view class="">
+                {{testDetails.comment}}
+            </view>
+        </view>
+    </view>
+    <view class="item-block" wx:for="{{resultDatas}}" wx:key="*this" wx:if="{{item.name}}">
+    <!-- wx:if="{{item.number>=0}}" -->
+        <view class="block-row">
+            <view class="block-text">{{item.name}}</view>
+            <view class="block-value main-color">症状程度：{{item.value}}分/{{item.value<30?'轻度':'中度'}}</view>
+        </view>
+        <view class="block-img">
+            <block wx:if="{{item.picUrlsThumb}}" >
+                <image mode="aspectFit" bindtap="previewImage" data-index="{{index}}" data-url="{{item.picUrlsThumb}}" src="{{item.picUrlsThumb}}"></image>
+            </block>
+        </view>
+        <view>
+            {{item.message}}
+        </view>
+        <!-- <view class="block-recom">
+            <view class="recom-link">护肤产品建议</view>
+            <view class="recom-view">
+                <view class="recom-item" wx:for="{{item.recom}}">
+                    <image mode="aspectFit" src="{{item.img}}"></image>
+                    <view class="recom-name">{{item.name}}</view>
+                    <view class="main-color">￥{{item.price}}</view>
+                </view>
+            </view>
+        </view> -->
+    </view>
+</view>

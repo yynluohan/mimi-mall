@@ -1,0 +1,214 @@
+.container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #F6F7FB;
+    overflow: scroll;
+}
+.no-address {
+    width: 100%;
+    height: calc( 100% - 100rpx );
+    color: #888888;
+    background-color: #F6F7FB;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.no-address image {
+    /* width: 240rpx;
+    height: 130rpx; */
+    width:40vw;
+    height:40vw;
+    margin: 0 auto;
+    margin-bottom: 30rpx;
+}
+
+.add-address {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    background-color: #c28324;
+    color: #FFF;
+}
+
+.font-icon {
+    font-size: 40rpx;
+}
+.cart-list {
+    padding-bottom: 100rpx;
+    overflow: scroll;
+    font-size: 30rpx;
+}
+checkbox-group {
+
+}
+
+.item-good {
+    /*display: flex;*/
+    align-items: center;
+    background-color: #fff;
+    border-bottom: 2rpx solid #ececec;
+    padding: 30rpx 0;
+    position: relative;
+    width: 100%;
+    height: 140rpx;
+}
+.item-body {
+    display: flex;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200rpx;
+    z-index: 30;
+    background-color: #fff;
+    
+    /*position: absolute;*/
+}
+.del-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120rpx;
+    height: 100%;
+    color: #FFF;
+    background-color: #e51e1e;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+}
+.sel-view {
+    width: 140rpx;
+    text-align: center;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+}
+.checkbox-icon {
+    font-size: 30px;
+    color: #ccc;
+    padding: 20rpx;
+}
+.good-cover {
+    width: 150rpx;
+    height: 150rpx;
+    margin: auto 0;
+}
+.radio-group {
+    color: #c28324;
+}
+.radio-sel {
+    color: #c28324;
+}
+
+.good-text {
+    flex: 1;
+    display: flex;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.good-foot {
+    display: flex;
+    justify-content: space-between;
+}
+
+.num-view {
+    display: flex;
+    font-size: 28rpx;
+    align-items: center;
+    height: 60rpx;
+    line-height: 60rpx;
+}
+
+.num-btn {
+    width: 50rpx;
+    text-align: center;
+    background-color: #f6f7fb;
+    color: #383838;
+    border: 1rpx solid #e3e3e3;
+    height: 60rpx;
+    line-height: 60rpx;
+}
+.display-btn {
+    opacity: 0.3;
+}
+.num-input {
+    width: 60rpx;
+    text-align: center;
+    background-color: #f6f7fb;
+    margin: 0 4rpx;
+    padding: 0 20rpx;
+    border-top: 1rpx solid #e3e3e3;
+    border-bottom: 1rpx solid #e3e3e3;
+    height: 60rpx;
+    line-height: 60rpx;
+}
+.foot-view {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    font-size: 30rpx;
+    vertical-align: middle;
+    justify-content: space-between;
+    padding: 0 30rpx;
+    height: 100rpx;
+    background-color: #FFF;
+    color: #808080;
+}
+
+.all-sel {
+    vertical-align: middle;
+}
+.all-sel icon {
+    vertical-align: middle;
+    margin-right: 10rpx;
+}
+.all-sel label {
+    vertical-align: middle;
+}
+.wind-up {
+    background-color: #c28324;
+    color: #FFF;
+    padding: 10rpx 30rpx;
+    border-radius: 20rpx;
+}
+
+
+
+checkbox .wx-checkbox-input{
+   border-radius: 50%;/* 圆角 */
+   width: 40rpx; /* 背景的宽 */
+   height: 40rpx; /* 背景的高 */
+}
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+   border: none;
+   background: #c28324;
+}
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+   border-radius: 50%;/* 圆角 */
+   width: 40rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
+   height: 40rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
+   line-height: 40rpx;
+   text-align: center;
+   font-size:30rpx; /* 对勾大小 30rpx */
+   color:#fff; /* 对勾颜色 白色 */
+   background: transparent;
+   transform:translate(-50%, -50%) scale(1);
+   -webkit-transform:translate(-50%, -50%) scale(1);
+}

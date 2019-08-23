@@ -1,0 +1,9 @@
+
+.wxParse {
+    /*padding-bottom: 100rpx;*/
+    /*text-align: center;*/
+}
+.wxParse-div image {
+     width: 100%!important;
+     margin: 0 auto;
+}

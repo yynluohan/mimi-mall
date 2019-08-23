@@ -1,0 +1,80 @@
+
+<view class="container">
+	<block wx:if="{{mould=='all'}}">
+		<scroll-view scroll-x class="scrollX">
+			<view wx:for="{{category}}" class="item-category {{index==lightIndex?'light':''}}" bindtap="selCategory" data-id="{{item.id}}" data-index="{{index}}">
+				{{item.name}}
+			</view>
+		</scroll-view>
+		<view class="activity-view">
+			<image class="activity-cover" src="{{activity.cover}}" bindtap="goActivity" data-id="{{activity.id}}"></image>
+			<block wx:if="{{activity.goods}}">
+				<view class="activity-goods">
+					<view class="item-good" wx:for="{{activity.goods}}" bindtap="productDetails" data-id="{{item.id}}">
+						<image class="good-img" src="{{item.img}}" ></image>
+						<text class="good-name">{{item.name}}</text>
+						<text class="good-price">￥{{item.price}}</text>
+					</view>
+				</view>
+			</block>
+		</view>
+	</block>
+	<block wx:if="{{mould=='hot'}}">
+		<view class="hot-view">
+			<image class="hot-cover" src="{{hot.cover}}"></image>
+			<view class="hot-products">
+				<view wx:for="{{hot.products}}" class="hot-item" bindtap="productDetails" data-id="{{item.id}}">
+					<image class="hot-img" src="{{item.img}}"></image>
+					<view class="hot-right">
+						<view class="hot-name">{{item.name}}</view>
+						<view class="good-price">￥{{item.price}}</view>
+						<view class="hot-foot">
+							<text class="hot-num">热销：{{item.num}}件</text>
+							<text class="hot-btn" bindtap="productDetails" data-id="{{item.id}}">立即购买</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</block>
+	<block wx:if="{{mould=='new_pro'}}">
+        <view class="new-pro">
+            <image class="new-pro-cover" src="{{newPro.cover}}" bindtap="newProCover" data-url="{{newPro.url}}"></image>
+            <view wx:for="{{newPro.data}}" class="newPro-item">
+                <view class="time-link">{{item.time}}</view>
+                <view class="newPro-pro">
+                    <view wx:for="{{item.products}}" class="newPro-pro-item" bindtap="productDetails" data-id="{{item.id}}">
+                        <image class="newPro-item-cover" src="{{item.cover}}"></image>
+                        <view class="hot-name">{{item.name}}</view>
+                        <view class="good-price">￥{{item.price}}</view>
+                    </view>
+                </view>
+                <view style="background-color:#F6F7FB;width:100%;height:20rpx"></view>
+            </view>
+        </view>   
+    </block>
+    <block wx:if="{{mould=='news'}}">
+        <view class="news">
+            <image class="news-cover" src="{{news.cover}}"></image>
+            <view class="news-articles">
+                <view class="item-article" wx:for="{{news.articles}}" bindtap="articleDetails" data-id="{{item.id}}">
+                    <image class="article-cover" src="{{item.cover}}"></image>
+                    <view class="article-right">
+                        <view class="article-name">{{item.name}}{{item.name}}</view>
+                        <view class="article-subtitle">{{item.subtitle}}</view>
+                        <view class="article-foot">
+                            <view class="foot-view">
+                                <image src="../../images/browse.png"></image>
+                                <text>{{item.num}}</text>
+                            </view>
+                            <view class="foot-view">
+                                <image src="../../images/time.png"></image>
+                                <text>{{item.date}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>

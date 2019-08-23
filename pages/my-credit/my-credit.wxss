@@ -1,0 +1,40 @@
+
+.credit-head {
+    color: #595959;
+    font-size: 30rpx;
+    padding: 30rpx;
+    border-top: 2rpx solid #e5e5e5;
+    border-bottom: 2rpx solid #e5e5e5;
+}
+.flex-row {
+    display: flex;
+    justify-content: space-between;
+}
+.content-row {
+    text-align: center;
+    font-size: 50rpx;
+    padding: 30rpx 0;
+}
+
+.item-credit {
+    display: flex;
+    font-size: 30rpx;
+    padding: 30rpx 20rpx;
+    border-bottom: 2rpx solid #e5e5e5;
+}
+.item-date {
+    margin-right: 40rpx;
+}
+.order_num {
+    font-size: 20rpx;
+}
+
+.credit-value {
+    margin: auto;
+    margin-right: 10rpx;
+}
+
+.no-histories {
+    font-size: 32rpx;
+    text-align: center;
+}

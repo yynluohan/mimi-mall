@@ -1,0 +1,19 @@
+<view class="container">
+    <view class="friends">
+        <!-- <view class="no-data" wx:if="{{sellers.children.length==0}}">暂无伙伴</view> -->
+        <!-- <view class="tip">会员共 1 位，普通用户共 2 位</view> -->
+        <view class="item-friend" wx:for="{{sellers.children}}">
+            <image class="item-avatar" src="{{item.avatar}}"></image>
+            <view class="friend-text">
+                <view class="member">
+                    <text>{{item.user_name}}</text>
+                    <image class="member-img" src="../../images/member.png"></image>
+                    <text class="main-color">{{item.grade}}</text>
+                </view>
+                <view class="register-date">注册时间：{{item.register_date}}</view>
+            </view>
+        </view>
+    </view>
+    <web-view src="{{webUrl}}?uid={{users.uid}}" bindmessage="webMessage" bindload="webLoad" binderror="webError"/>
+
+</view>

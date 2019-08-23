@@ -1,0 +1,100 @@
+<import src="../../utils/template/tabBar/tabBar.wxml" />
+<scroll-view style="width:100%;height:{{SystemInfo.windowHeight}}px" scroll-y="true" bindscroll="scrollTopFun" bindscrolltolower="loadMore" lower-threshold="0">
+    <view class="container">
+        <!-- <view class="search" bindtap="goSearch">
+        <text class="iconfont icon-sousuo-"></text><text class="search-link">请输入搜索商品</text>
+    </view>
+    <template is="ad-swiper" data="{{adSwiper}}" />
+    <template is="nav" data="{{navData}}" />
+
+    <view style="background-color:#FFF;width:100%;height:30rpx"></view> -->
+        <view class="index-head">
+            <block wx:if="{{isLogin}}">
+                <view class="index-user" catchtap="openPage" data-page="../my-profile/my-profile" data-open-type="navigator">
+                    <image class="index-avatar" wx:if="{{users.avatar}}" src="{{users.avatar}}"></image>
+                    <image class="index-avatar" wx:else src="../../images/logo.jpg"></image>
+                    <view class="index-user-name">{{users.name}}</view>
+                    <!-- <image class="index-member-img" src="../../images/member2.png"></image> -->
+                    <!-- <view class="main-color" wx:if="{{users.phone}}">{{users.gradeName}}</view>
+                    <view class="main-color" wx:else>未登陆</view> -->
+                    <view class="main-color">{{users.gradeName}}</view>
+                </view>
+            </block>
+            <block wx:else>
+                <view class="index-user" bindtap="showLogin">
+                    <image class="index-avatar" wx:if="{{users.avatar}}" src="{{users.avatar}}"></image>
+                    <image class="index-avatar" wx:else src="../../images/logo.jpg"></image>
+                    <view class="index-user-name" wx:if="{{users.name}}">{{users.name}}</view>
+                    <view class="index-user-name" wx:else>未登陆</view>
+                    <!-- <image class="index-member-img" src="../../images/member2.png"></image> -->
+                    <view class="main-color" wx:if="{{users.gradeName}}">{{users.gradeName}}</view>
+                    <!-- <view class="main-color" wx:else>未登陆</view> -->
+                </view>
+            </block>
+            
+            <view class="index-search-cart">
+                <image bindtap="goSearch" class="index-search-img" src="../../images/search-icon.png"></image>
+                <view class="index-cart" bindtap="goCart">
+                    <image class="index-cart-img" src="../../images/cart-icon.png"></image>
+                    <view wx:if="{{carts.length}}">{{carts.length}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="index-packge">
+            <view class="packge-link main-color">我的专属套餐</view>
+            <view>
+                <template is="scroll-x-packge" data="{{myPackge}}" />
+            </view>
+        </view>
+        <!-- <view style="background-color:#F6F7FB;width:100%;height:20rpx"></view> -->
+        <view class="{{top>200?'topnav':''}}" style="margin: 0 20rpx">
+            <template is="scroll-x-category" data="{{category,lightIndex}}" />
+        </view>
+        <!-- <navigator url='../evaluate-list/evaluate-list?id=1'>评价</navigator> -->
+        <!-- <view style="background-color:#FFF;width:100%;height:30rpx"></view> -->
+        <view class="goods">
+            <view class="item-good" wx:for="{{goods}}" wx:if="{{goods.length}}" bindtap="productDetails" data-id="{{item.id}}">
+                <image class="good-cover" mode="aspectFill" src="{{item.cover}}"></image>
+                <view class="good-right">
+                    <view class="good-index-name">{{item.name}}</view>
+                    <view class="good-short-name">{{item.short_name}}</view>
+                    <view class="good-prompt">{{item.prompt}}</view>
+                    <view class="good-price">￥{{item.price}}</view>
+                    <view class="good-foot">
+                        <view class="foot-view">
+                            <block wx:if="{{item.allow_coupon>0}}">
+                                <image class="iconfont icon-youhuiquan" src=""></image>
+                                <text class="foot-link">券</text>
+                            </block>
+                            <block wx:if="{{item.allow_coupon>0 && item.credit>0}}"><text> | </text></block>
+                            <block wx:if="{{item.credit>0}}">
+                                <image class="iconfont icon-jifen" src=""></image>
+                                <text class="foot-link">积分</text>
+                            </block>
+                        </view>
+                        <view class="buy-btn">立即购买</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</scroll-view>
+<template is="login" data="{{loginPopup}}"></template>
+<!-- <view class="login-popup" wx:if="{{loginPopup}}">
+    <view class="login-container login">
+        <view class="login-close-popup" bindtap="closeLoginPopup"></view>
+        <view class="login-popup-head">
+        </view>
+        <view class='float_tab'>
+            <view class='info1'><text>微信授权</text></view>
+            <view class='info2'><text>小程序将获取以下权限：</text></view>
+            <view class='info3'><text>(如未授权，可能无法正常使用该小程序)</text></view>
+            <view class='info4'><text>获取您的公开信息（昵称、头像等）</text></view>
+        </view>
+        <view class='float_button'>
+            <button type="primary" size="default" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+                确定授权
+            </button>
+        </view>
+    </view>
+</view> -->

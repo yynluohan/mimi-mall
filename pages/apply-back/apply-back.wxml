@@ -1,0 +1,80 @@
+<view class="container">
+    <view class="prompt">
+        注意：申请退货后请等待平台确认，申请通过后请填写快递单号
+    </view>
+    <view class="goods">
+        <view class="item-good" wx:for="{{order.goods}}">
+            <image class="good-cover" src="{{item.cover}}"></image>
+            <view class="good-right">
+                {{item.name}}
+            </view>
+        </view>
+    </view>
+    <view style="background-color:#F6F7FB;width:100%;height:20rpx"></view>
+    <form bindsubmit="formSubmit">
+        <view class="flex-row">
+            <label>退款说明：</label>
+            <input name="back-text" type="text" placeholder="必填"/>
+        </view>
+        <view class="flex-row">
+            <label>退款金额：</label>
+            <input name="back-price" type="text" placeholder="￥{{order.price}}"/>
+        </view>
+        <view class="flex-row prompt-price">
+            最多￥{{order.price}}
+        </view>
+        <view class="flex-row">
+            <label>备注：</label>
+            <input name="remark" type="text" placeholder="选填"/>
+        </view>
+        <view class="update">
+            <view class="update-link">上传凭证</view>
+
+            <view class="update-body">
+                <view class="item-update" bindtap="update">
+                    <text class="iconfont icon-jia icon-size"></text>
+                    <!-- <view class="close" >x</view> -->
+                </view>
+                <view class="item-update" wx:for="{{apply.goods}}">
+                    <image mode="aspectFill" src="{{item.img}}"></image>
+                    <view class="close" bindtap="delImg" data-index="{{index}}">x</view>
+                </view>
+            </view>
+        </view>
+        <view class="apply-status" wx:if="{{apply.status == 1}}">
+            <view>申请状态：</view>
+            <view class="status-success">通过</view>
+        </view>
+        <view class="apply-status" wx:if="{{apply.status == 2}}">
+            <view>申请状态：</view>
+            <view class="status-error">未通过</view>
+        </view>
+        <button wx:if="{{apply.status!=1}}" class="main-bg sub-btn" form-type="submit" >申请退货</button>
+        <button wx:if="{{apply.status==1}}" class="main-bg sub-btn" bindtap="showPopup" >填写快递单号</button>
+    </form>
+    
+
+</view>
+
+<view class="opacity-view" wx:if="{{showPopup}}" bindtap="closePopup" data-title="closePopup"></view>
+
+<view class="showPopup" wx:if="{{showPopup}}">
+  <view class="popup-head">
+    <view class="popup-title">填写快递单号</view>
+    <text bindtap="closePopup" class="iconfont icon-guanbi close-icon"></text>
+  </view>
+
+  <view class="popup-row">
+    <view class="popup-link">快递公司：</view>
+    <input type="text" class="express-name"/>
+  </view>
+  <view class="popup-row">
+    <view class="popup-link">快递单号：</view>
+    <input type="text" class="express-num"/>
+  </view>
+  <view class="popup-row">
+      <view class="popup-btn main-bg">确定</view>
+  </view>
+</view>
+
+<!-- <view class="closePopup" wx:if="{{showPopup}}" bindtap="closePopup" data-title="closePopup">×</view> -->

@@ -1,0 +1,15 @@
+<!--utils/template/menu/menu.wxml-->
+
+<template name="one-menu">
+	
+	<view class="menu-div">
+	
+		<view class="menuItem">
+			
+
+		</view>
+
+
+	</view>
+
+</template>

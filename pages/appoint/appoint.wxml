@@ -1,0 +1,46 @@
+<import src="../../utils/template/tabBar/tabBar.wxml" />
+
+<view class="container">
+    <view class="location" bindtap="getLocation">
+        <view class="location-left">
+            <text class="iconfont icon-dizhi1 icon-size main-color"></text>
+            <view class="location-text" wx:if="{{location}}">{{location}}</view>
+            <view class="location-text" wx:else>暂未获取当前位置</view>
+        </view>
+        <text class="iconfont icon-refresh"></text>
+    </view>
+    <form class="headerSearch" >
+        <view class="form-row">
+            <input type="text" name="searchText" bindinput="searchAgency" bindconfirm="searchSubmit" focus="{{focus}}" placeholder-class="placeholder"  placeholder="搜索区域或店铺名" />
+            <!-- <image src="../../images/search.png"></image> -->
+            <button class="search-btn main-color" wx:if="{{searchText==''}}" >搜索</button>
+            <button class="search-btn main-color" bindtap="resetForm" formType="reset" wx:else >取消</button>
+        </view>
+        
+        <!-- <view class="search-btn">搜索</view> -->
+    </form>
+
+    <view class="store-list">
+        <view wx:if="{{ storeList.length == 0 }}" class="no-data-view">
+            <image class="no-data-img" mode="aspectFit" src="../../images/no-order.png"></image>
+            <view class="no-data-text">未发现相关门店</view>
+        </view>
+        <view bindtap="storeDetails" data-id="{{item.id}}" wx:for="{{storeList}}" class="item-store">
+            <image mode="aspectFill" class="store-cover" src="{{item.avatar}}"></image>
+            <view class="store-right">
+                <view class="store-name">{{item.name}}</view>
+                <view class="store-address">{{item.province}} {{item.city}} {{item.district}} {{item.address}}</view>
+                <view class="store-area">
+                    <view class="area main-color">{{item.district}}</view>
+                    <block wx:if="{{item.distance}}">
+                        <view class="range" wx:if="{{item.distance>=1000}}">{{item.distance/1000}}km</view>
+                        <view class="range" wx:else>{{item.distance}}m</view>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+
+<template is="openSetting" data="{{openPopup}}"></template>

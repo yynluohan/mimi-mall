@@ -1,0 +1,19 @@
+<view class="container">
+<!--     <view class="img0" >
+        <image src="{{imgs.img0}}"></image>
+    </view> -->
+    <view class="img0" style="background-image: url({{previewImages[0]}}); "></view>
+
+    <view class="img1" style="clip: rect(0px, 100vw, 100vh, {{sliderValue}}vw)">
+        <view class="img1-bg" style="background-image: url({{previewImages[1]}}); "></view>
+    </view>
+<!--     <view class="shelter">
+        <image src="../../images/shelter.png"></image>
+    </view> -->
+    <!-- <image class="img0" src="{{imgs.img0}}"></image> -->
+    <!-- <image class="img1" src="{{imgs.img1}}"></image> -->
+    <view class="slider-view">
+        <!-- <progress percent="{{percent}}" color="#c28324" /> -->
+        <slider bindchanging="sliderChange" value="{{sliderValue}}" block-size="12" selected-color="#c28324" color="#fff"  max='100' />
+    </view>
+</view>

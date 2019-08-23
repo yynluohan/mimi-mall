@@ -1,0 +1,85 @@
+<view class="container">
+    <view class="no-data" wx:if="{{!subject}}">
+        <image src="../../images/no-order.png"></image>
+        <view>暂无测试题目</view>
+    </view>
+    <!-- <block wx:if="{{subject && !isSubmit}}"> -->
+    <view class="subject-view" wx:if="{{subject}}">
+        <block wx:if="{{questionNum==0}}">
+            <view class="user-info">
+                <view class="subject-tip">
+                    <view>您的信息</view>
+                    <view>请输入您的出生日期、年龄、性别</view>
+                </view>
+                <view class="flex-row">
+                    <view>出生年月</view>
+                    <picker mode="date" bindchange="bindPickerChange">
+                        <view class="picker">
+                            {{profile.birthday?profile.birthday:'请选择'}}
+                        </view>
+                    </picker>
+                </view>
+                <view class="flex-row">
+                    <view>年龄</view>
+                    <view class="flex-row-value">{{profile.age}}</view>
+                </view>
+                <view class="flex-row">
+                    <view>性别</view>
+                    <view class="sex">
+                        <view catchtap="selSex" data-status="1" class="{{profile.sex==1?'main-bg':''}}">男</view>
+                        <view catchtap="selSex" data-status="2" class="{{profile.sex==2?'main-bg':''}}">女</view>
+                    </view>
+                </view>
+                
+            </view>
+            <view class="foot-btn">
+                    <view></view>
+                    <view catchtap="subjectBtn" data-operation="start" class="main-color">开始答题</view>
+                </view>
+        </block>
+        <block wx:elif="{{questionNum>0&& !isSubmit}}">
+            <view class="subject-item">
+                <!-- <view class="subject-type">{{surveys.type}}</view> -->
+                <view class="subject-content">
+                    <text style="color: red" wx:if="{{surveyItems.isRequired}}">*</text>
+                    <text>{{questionNum}}.{{surveyItems.content}}</text>
+                    <text wx:if="{{surveyItems.type=='RADIO'}}">(单选题)</text>
+                    <text wx:if="{{surveyItems.type=='MULTI'}}">(多选题)</text>
+                </view>
+                <view class="subject-options">
+                    <view class="option-item {{answerItem[index]?'sel-options':''}}" bindtap="selAnswer" data-index="{{index}}" data-item-type="{{surveyItems.type}}" wx:for="{{surveyItems.itemOptions}}">
+                        <image class="option-img" src="{{item.imageUrl_s[0].url}}" wx:if="{{item.imageUrl_s}}"></image>
+                        <view>{{item.content}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="foot-btn">
+                <block wx:if="{{questionNum>0}}">
+                    <view catchtap="subjectBtn" data-operation="upper" class="main-color">
+                        上一题
+                    </view>
+                </block>
+                <block wx:if="{{questionNum<surveys.surveyItems.length}}">
+                    <view catchtap="subjectBtn" data-operation="next" class="main-color">
+                        下一题
+                    </view>
+                </block>
+                <block wx:if="{{questionNum==surveys.surveyItems.length}}">
+                    <view catchtap="subjectBtn" data-operation="submit" class="main-color">
+                        提交
+                    </view>
+                </block>
+            </view>
+        </block>
+        <block wx:else="{{isSubmit}}">
+            <view class="submit-container">
+                <view class="submit-head">
+                    <image class="sub-subject-img" src="../../images/sub-subject.png"></image>
+                    <view class="main-color">恭喜完成在线测试</view>
+                </view>
+                <view class="main-bg submit-container-btn" catchtap="openPage" data-url="../index/index" data-open-type="switchTab">返回首页</view>
+            </view>
+        </block>
+    </view>
+    <!-- </block> -->
+</view>

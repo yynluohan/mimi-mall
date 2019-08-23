@@ -1,0 +1,94 @@
+<import src="../../utils/template/tabBar/tabBar.wxml" />
+<import src="../../wxParse/wxParse.wxml" />
+<!-- <scroll-view scroll-y="{{!show}}" disable-scroll="true"> -->
+<view class="container" style="padding-bottom:100rpx;">
+    <!-- <image src="{{product.img}}"></image> -->
+    <template is="square-swiper" data="{{detailImg}}" />
+    <view class="product-text">
+        <text>{{product.name}}</text>
+        <view class="price-view">
+            <text class="price">￥{{product.price}}</text>
+            <text class="old-price">原价：￥{{product.suggested_price}}</text>
+        </view>
+        <view class="product-link">
+            运费：<text>{{product.fare_template.content}}</text>
+        </view>
+        <view class="product-link" wx:if="{{product.credit>0&&product.allow_coupon>0}}">
+            活动：<text wx:if="{{product.allow_coupon>0}}"> 可使用优惠券 </text><text wx:if="{{product.credit>0&&product.allow_coupon>0}}"> 、</text><text wx:if="{{product.credit>0}}"> 可使用积分 </text>
+        </view>
+    </view>
+    <view style="background-color:#F6F7FB;width:100%;height:20rpx"></view>
+    <view class="videos-view" style="display:{{product.videos.length>0?'inline-block':'none'}}">
+        <view class="videos-link">视频介绍</view>
+        <video class="product-video"  autoplay="{{false}}" src="{{product.videos[0].url}}"></video>
+    </view>
+    <view class="wxParse" wx:if="{{description.nodes}}">
+        <view class="description-link">商品详情</view>
+        <template is="wxParse" data="{{wxParseData:description.nodes}}" />
+    </view>
+    <view style="background-color:#F6F7FB;width:100%;height:20rpx"></view>
+    <view class="evaluation-view">
+        <view class="evaluation-head">
+            <view>用户评价({{evaluation.total}})</view>
+            <view class="evaluation-more" bindtap="getMore" data-id="{{product.id}}">
+                <view>查看全部评价</view>
+                <view class="right-arrow"></view>
+            </view>
+        </view>
+        <view class="evaluations">
+            <view class="item-evaluation" wx:for="{{evaluation.records}}" wx:if="{{index==0}}">
+                <view class="evaluation-user">
+                    <image class="user-avatar" src="{{item.avatar}}"></image>
+                    <view class="user-text">
+                        <view>{{item.memberName}}</view>
+                        <view>{{item.subtitle}}</view>
+                    </view>
+                    <template is="star-evaluate" data="{{mark:item.stockEvaluationStars[0].starValue,productIndex:index}}" />
+                </view>
+                <view class="evaluation-content">{{item.content}}</view>
+                <view class="evaluation-imgs" wx:if="{{item.images.length>0}}">
+                    <image class="item-img" src="{{item.url}}" wx:for="{{item.images}}"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <cover-view class="attr-picker {{show?'show':'hide'}}">
+        <cover-view class="picker-shadow {{runAM? 'picker-shadow-on': '' }}" bindtap="chanMask"></cover-view>
+        <cover-view class="picker-box {{runAM? 'picker-box-show': ''}}">
+            <cover-view class="picker-top">
+                <cover-image class="picker-cover" src="{{product.cover}}"></cover-image>
+                <cover-view class="picker-good-text">
+                    <cover-view class="picker-name">{{product.name}}</cover-view>
+                    <cover-view class="picker-price main-color">￥{{product.price}}</cover-view>
+                </cover-view>
+                <!-- <cover-view class=""> -->
+                <cover-image src="../../images/fail.png" class="close-img" bindtap="chanMask"></cover-image>
+                <!-- </cover-view> -->
+            </cover-view>
+            <cover-view class="picker-content ">
+                <cover-view class="row-link">数量</cover-view>
+                <cover-view class="num-view">
+                    <!-- <cover-view class="count-icon-btn count-icon-btn-minus" bindtap="numFun" data-type="minus"></cover-view> -->
+                    <cover-view class="num-btn" bindtap="numFun" data-type="minus">-</cover-view>
+                    <cover-view class="num-input">
+                        {{num}}
+                        <!-- <input class="num-input" type="number" value="{{num}}" display/> -->
+                    </cover-view>
+                    <cover-view class="num-btn" bindtap="numFun" data-type="add">+</cover-view>
+                    <!-- <cover-view class="count-icon-btn count-icon-btn-plus" bindtap="numFun" data-type="add"></cover-view> -->
+                </cover-view>
+            </cover-view>
+            <cover-view class="picker-foot" bindtap="confirm">确定</cover-view>
+        </cover-view>
+    </cover-view>
+    <cover-view class="foot-view {{show?'foot-view-hide':''}}">
+        <cover-view class="foot-left" bindtap="goCart">
+            <cover-image src="../../images/cart-icon.png" class="cart-icon.png"></cover-image>
+            <cover-view>购物车</cover-view>
+            <cover-view class="cart-num" wx:if="{{cart.length>0}}">{{cart.length>99?'99+':cart.length}}</cover-view>
+        </cover-view>
+        <cover-view class="cart-btn {{product.required_participate_exam?'displayBtn':''}}" bindtap="chanMask" data-form="cart">加入购物车</cover-view>
+        <cover-view class="buy-btn {{product.required_participate_exam?'displayBtn':''}}" bindtap="chanMask" data-form="buy">立即购买</cover-view>
+    </cover-view>
+</view>
+<!-- </scroll-view> -->

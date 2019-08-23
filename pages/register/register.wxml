@@ -1,0 +1,17 @@
+<view class="container">
+	
+	<!-- <view class="prompt">关联后，您的微信账号和手机账号都可以登录</view> -->
+	<view class="row-view">
+		<input type="number" maxlength="11" bindinput="phone" value="{{phone}}" class="phone-input" placeholder="请输入手机号码" placeholder-class="placeholder" />
+		<image wx:if="{{phone}}" bindtap="emptyPhone" class="empty-img" src="../../images/fail.png"></image>
+	</view>
+	
+	<view class="row-view ">
+		<input type="number" maxlength="6" bindinput="captcha" value="{{captcha}}" class="captcha-input" placeholder="请输入收到的验证码" placeholder-class="placeholder" />
+		<image wx:if="{{captcha}}" bindtap="emptyCaptcha" class="empty-img" src="../../images/fail.png"></image>
+		<view wx:if="{{second}}" class="captcha-btn main-color {{second? 'prohibit':''}} " bindtap="captchaBtn">再次获取<text wx:if="{{second}}">({{second}})</text></view>
+		<view wx:else class="captcha-btn main-color" bindtap="captchaBtn">获取验证码</view>
+	</view>
+	<view class="relevancy main-bg {{active_R? '':'active_R'}}" bindtap="relevancyBtn">提交</view>
+
+</view>

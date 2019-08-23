@@ -1,0 +1,42 @@
+<import src="../../utils/template/tabBar/tabBar.wxml" />
+<view class="container">
+    <view class="menu-view">
+        <view bindtap="selMenu" data-index="{{index}}" class="item-menu {{lightIndex==index?'main-bg':''}}" wx:for="{{menu}}">
+            {{item.text}}
+            <block wx:if="{{index==0}}">({{evaluationTotal}})</block>
+            <block wx:if="{{index>0}}">({{starCount[(5-index)].startCount}})</block>
+        </view>
+    </view>
+    <!-- <view class="evaluation-view"> -->
+        <!-- <view class="evaluation-head">
+            <view>用户评价({{evaluation.total}})</view>
+            <view class="evaluation-more" bindtap="getMore" data-id="{{product.id}}">
+                <view>查看全部评价</view>
+                <view class="right-arrow"></view>
+            </view>
+        </view> -->
+        <view class="evaluations">
+            <block wx:if="{{evaluation.length}}">
+                
+                <view class="item-evaluation" wx:for="{{evaluation}}">
+                    <view class="evaluation-user">
+                        <image class="user-avatar" src="{{item.avatar}}"></image>
+                        <view class="user-text">
+                            <view>{{item.memberName}}</view>
+                            <view>{{item.subtitle}}</view>
+                        </view>
+                        <template is="star-evaluate" data="{{mark:item.stockEvaluationStars[0].starValue,productIndex:index}}" />
+                    </view>
+                    <view class="evaluation-content">{{item.content}}</view>
+                    <view class="evaluation-imgs" wx:if="{{item.images.length>0}}">
+                        <image class="item-img" src="{{item.url}}" wx:for="{{item.images}}"></image>
+                    </view>
+                </view>
+                <view class="loadText">{{loadText}}</view>
+            </block>
+            <block wx:else >
+                <view class="no-data">暂无消息</view>
+            </block>
+        </view>
+    <!-- </view> -->
+</view>

@@ -1,0 +1,33 @@
+<view class="container">
+
+    <view wx:if="{{addressList.length==0}}" class="no-address">
+        <image src="../../images/no_address.png"></image>
+        <view>您还没有添加收货地址</view>
+    </view>
+    
+    <view class="address-list">
+        <radio-group bindchange="radioChange">
+            <view class="item-address" wx:for="{{addressList}}">
+                <view class="item-body" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" data-index="{{index}}"  style="left: {{leftList[index]}}rpx">
+                    <view class="sel-view">
+                        <radio color="#c28324" bindtap="radioChange" data-index="{{index}}" checked="{{index==selIndex}}" value="{{index}}" />
+                    </view>
+                    <view class="address-text">
+                        <view class="users">
+                            <view>{{item.contact_user}}</view>
+                            <view class="phone">{{item.phone}}</view>
+                            <view class="default main-color">{{item.is_default?'默认':' '}}</view>
+                        </view>
+                        <view class="address-value">{{item.province}} {{item.city}} {{item.district}} {{item.detail}}</view>
+                    </view>
+                    <view class="sel-view" bindtap="edit" data-index="{{index}}">
+                        <text class="iconfont icon-bianji main-color font-icon address-icon"></text>
+                    </view>
+                </view>
+                <button class="del-btn" catchtap="delAddress" data-id="{{item.id}}">删除</button>
+            </view>
+        </radio-group>
+    </view>
+</view>
+
+    <view class="add-address" bindtap="add">新增收货地址</view>

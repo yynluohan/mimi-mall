@@ -1,0 +1,12 @@
+<!--pages/my-credit/credit-explain.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<block wx:if="{{explain}}">
+	<view class="wxParse" wx:if="{{content.nodes}}">
+        <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+  </view>
+</block>
+<block wx:else>
+	<view class="container">
+        暂无数据
+    </view>
+</block>

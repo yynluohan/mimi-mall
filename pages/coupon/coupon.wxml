@@ -1,0 +1,101 @@
+<view class="container">
+    <view wx:if="{{couponList.length==0}}" class="no-coupon">
+        <image class="no-coupon" src="../../images/no_coupon.png"></image>
+        <view>无相关优惠券</view>
+    </view>
+    <view class="coupons" wx:if="{{couponList}}">
+        <view wx:for="{{couponList}}" class="coupon-item" bindtap="selCoupon" data-index="{{index}}">
+            <view class="left-coupon">
+                <view class="color-view {{item.status!='ACTIVATION'?'invalid-bg':''}}"></view>
+                <view class="coupon-text">
+                    <view class="coupon-name">{{item.name}}</view>
+                    <view class="describe {{invalid-font}}" wx:if="{{item.description!=null}}">{{item.description}}</view>
+                    <view class="describe {{invalid-font}}" wx:elif="{{item.display_name!=null}}">{{item.display_name}}</view>
+
+                    <view>{{item.valid_date}}</view>
+                </view>
+            </view>
+            <view class="right-coupon {{item.status==2?'invalid-font':''}}">
+                <view>
+                    <text>￥</text>
+                    <text class="coupon-money ">{{item.money}}</text>
+                </view>
+                <view class="status " wx:if="{{item.status=='NON_ACTIVATION'}}">
+                    <view class="status-text">未激活</view>
+                </view>
+                <view class="active-coupon" wx:if="{{item.status=='ACTIVATION'}}">
+                    <view class="status-text">已激活</view>
+                </view>
+                <view class="status" wx:if="{{item.status=='OVERDUE'}}">
+                    <view class="status-text">已过期</view>
+                </view>
+                <view class="status" wx:if="{{item.status=='USED'}}">
+                    <view class="status-text">已使用</view>
+                </view>
+            </view>
+
+        </view>
+
+    </view>
+    <view class="coupons" wx:if="{{coupons}}">
+        <view class="coupons-btn" bindtap="selCoupon" data-index="-1">
+            不使用优惠券
+        </view>
+        <view wx:for="{{coupons}}" class="coupon-item" bindtap="selCoupon" data-index="{{index}}">
+            <view class="left-coupon">
+                <view class="color-view"></view>
+                <view class="coupon-text">
+                    <view>{{item.title}}</view>
+                    <view class="describe {{invalid-font}}">{{item.description}}</view>
+                    <view>{{item.start_time_s}}-{{item.end_time_s}}</view>
+                </view>
+            </view>
+            <view class="right-coupon">
+                <!-- {{item.status==2?'invalid-font':''}} -->
+                <view wx:if="{{item.c_type=='full'}}">
+                    <text>￥</text>
+                    <text class="coupon-money ">{{item.worth}}</text>
+                </view>
+                <view wx:elif="{{item.c_type=='discount'}}">
+                    <text class="coupon-money ">{{item.discount}}折</text>
+                </view>
+                <!-- <view class="status " wx:if="{{item.status=='NON_ACTIVATION'}}">
+                    <view class="status-text">未激活</view>
+                </view> -->
+            </view>
+
+        </view>
+
+    </view>
+
+    <!-- <view class="coupons" wx:if="{{coupons}}">
+        <view class="coupons-btn" bindtap="selCoupon" data-index="-1">
+            不使用优惠券
+        </view>
+        <view wx:for="{{coupons}}" class="coupon-item" bindtap="selCoupon" data-index="{{index}}">
+            <view class="left-coupon">
+                <view class="color-view"></view>
+                <view class="coupon-text">
+                    <view>{{item.coupon_name}}</view>
+                    <view class="describe {{invalid-font}}">{{item.description}}</view>
+                    <view>{{item.valid_date}}</view>
+                </view>
+            </view>
+            <view class="right-coupon">
+                {{item.status==2?'invalid-font':''}}
+                <view wx:if="{{item.coupon_money>0}}">
+                    <text>￥</text>
+                    <text class="coupon-money ">{{item.coupon_money}}</text>
+                </view>
+                <view wx:if="{{item.coupon_discount>0}}">
+                    <text class="coupon-money ">{{item.coupon_discount/10}}折</text>
+                </view>
+                <!-- <view class="status " wx:if="{{item.status=='NON_ACTIVATION'}}">
+                    <view class="status-text">未激活</view>
+                </view> 
+            </view>
+
+        </view>
+
+    </view> -->
+</view>

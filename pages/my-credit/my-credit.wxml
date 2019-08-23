@@ -1,0 +1,39 @@
+<view class="container">
+
+    <view class="credit-head">
+        <view class="flex-row">
+            <view>可用积分</view>
+            <view bindtap="openPage" data-page="./credit-explain">积分规则>></view>
+        </view>
+        <view class="content-row">
+            <view>{{ creditData.credit || 0 }}</view>
+        </view>
+        <view class="flex-row">
+            <view>收支明细</view>
+            <view>
+                <picker mode="date" fields="month" end="{{nowDate}}" bindchange="bindPickerChange" value="{{nowDate}}">
+                    <view class="picker">
+                        当前选择：{{nowDate}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+    </view>
+    <view class="creditList">
+        <block wx:if="{{historiesData.length}}">
+        <view wx:for="{{historiesData}}" class="item-credit">
+            <view class="item-date">{{item.time}}</view>
+            <view class="item-content">
+                <view>{{item.content}}</view>
+                <view class="order_num">{{item.order_num}}</view>
+            </view>
+            <view wx:if="{{item.status==1}}" class="credit-value" style="color: red">{{item.credit}}</view>
+            <view wx:if="{{item.status==2}}" class="credit-value" style="color: red">{{item.credit}}</view>
+            <view wx:if="{{item.status==3}}" class="credit-value" style="color: #12D72E">-{{item.credit}}</view>
+        </view>
+        </block>
+        <block wx:else>
+            <view class="no-histories">暂无信息</view>
+        </block>
+    </view>
+</view>

@@ -1,0 +1,76 @@
+/* pages/register/register.wxss */
+
+.container {
+}
+
+.prompt {
+	margin: 40rpx;
+}
+
+.row-view {
+	margin-top: 50rpx;
+	border-bottom: 1rpx solid #ccc;
+	padding-bottom: 20rpx;
+	margin: 50rpx 30rpx 0 30rpx;
+	display: flex;
+}
+
+.phone-input {
+    padding-left:25rpx;
+    flex: 1;
+    letter-spacing: 3rpx;
+
+
+}
+.captcha-input {
+    padding-left:25rpx;
+    flex: 1;
+    margin: auto;
+    letter-spacing: 3rpx;
+
+}
+.empty-img {
+	width: 50rpx;
+	height: 50rpx;
+	margin: auto;
+}
+
+.placeholder {
+	font-family: 'Microsoft YaHei';
+    letter-spacing: 3rpx;
+    font-size: 32rpx;
+}
+
+.captcha-btn {
+    width: 200rpx;
+    padding: 10rpx 10rpx;
+    text-align: center;
+    /*background-color: #cccccc;*/
+    /*border-radius: 50rpx;*/
+    font-size: 28rpx;
+    /*color: #000000;*/
+    letter-spacing: 3rpx;
+    border-left: 2rpx solid #d9d9d9; 
+}
+/* 禁止获取验证码时的样式  */
+.prohibit {
+	/*width: 250rpx;*/
+	font-size: 28rpx;
+    opacity: 0.5;    
+}
+
+.relevancy {
+	width: 85%;
+	padding: 20rpx 0;
+	background-color: ;
+	color: #FFFFFF;
+	text-align: center;
+	margin: auto;
+	border-radius: 100rpx;
+	margin-top: 50rpx;
+	opacity: 1;
+}
+
+.active_R {
+	opacity: 0.2
+}

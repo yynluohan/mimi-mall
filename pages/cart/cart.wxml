@@ -1,0 +1,44 @@
+<view class="container">
+
+    <view wx:if="{{cartList.length==0}}" class="no-address">
+        <image src="../../images/noShop.png"></image>
+        <view>购物车空啦，该补货啦</view>
+    </view>
+    
+    <view class="cart-list" wx:if="{{ cartList.length > 0 }}">
+        <checkbox-group bindchange="radioChange">
+            <view class="item-good" wx:for="{{cartList}}" >
+                <view class="item-body" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" data-index="{{index}}"  style="left: {{itemLefts[index]}}rpx">
+                    <view class="sel-view">
+                        <!-- <checkbox wx:if="{{allSel}}" checked value="{{index}}" color="#c28324" />
+                        <checkbox wx:else value="{{index}}" color="#c28324" /> -->
+                        <icon bindtap="selProduct" data-index="{{index}}" type="{{selArray[index]?'success':'circle'}}" color="#c28324"></icon>
+                    </view>
+                    <image mode="aspectFill" class="good-cover" src="{{item.cover}}"></image>
+                    <view class="good-text" catchtap="productDetails" data-id="{{item.product_id}}">
+                        <view>{{item.product_name}}</view>
+                        <view class="good-foot">
+                            <view class="main-color">￥{{item.price}}</view>
+                            <view class="num-view">
+                                <view class="num-btn {{item.quantity==1?'display-btn':''}}" catchtap="numFun" data-type="minus" data-index="{{index}}">-</view>
+                                <view class="">
+                                    <input class="num-input" type="number" value="{{item.quantity}}" display/>
+                                </view>
+                                <view class="num-btn" catchtap="numFun" data-type="add" data-index="{{index}}">+</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <button class="del-btn" catchtap="delAddress" data-id="{{item.product_id}}">删除</button>
+            </view>
+        </checkbox-group>
+    </view>
+</view>
+<view class="foot-view" wx:for="{{cartList}}">
+    <view class="all-sel" bindtap="allSel">
+        <icon type="{{allSel?'success':'circle'}}" color="#c28324"></icon>
+        <label>全选</label>
+    </view>
+    <view>合计：<text class="main-color">￥{{total_price}}</text></view>
+    <view class="wind-up" bindtap="windUp">去结算</view>
+</view>

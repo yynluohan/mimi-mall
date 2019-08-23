@@ -1,0 +1,363 @@
+/**index.wxss**/
+@import "../../utils/template/tabBar/tabBar.wxss"
+
+/*@import "../../common/font.wxss"*/
+.login-popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10;
+}
+
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 25rpx;
+}
+
+.login-close-popup {
+    background: #fff;
+    opacity: 0.7;
+    border-radius: 50%;
+    color: #565656;
+    line-height: 20px;
+    text-align: center;
+    height: 20px;
+    width: 20px;
+    font-size: 18px;
+    padding: 20rpx;
+    float: right;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.login-close-popup:before {
+    content: "\2716";
+}
+
+.login .float_tab {
+    width: 100%;
+    color: #000000;
+    font-size: 15px;
+    line-height: 1.8;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    flex-direction: column;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+}
+
+.login .float_tab .info1 {
+    color: #000000;
+    font-size: 16px;
+    line-height: 2;
+    text-indent: 40rpx;
+    margin-bottom: 20rpx;
+}
+
+.login .float_tab .info2 {
+    color: #000000;
+    font-size: 14px;
+    line-height: 1.8;
+    text-indent: 40rpx;
+}
+
+.login .float_tab .info3 {
+    color: #000000;
+    font-size: 14px;
+    line-height: 1.8;
+    text-indent: 40rpx;
+    border-bottom: 1px rgba(0, 0, 0, 0.15) solid;
+    padding-bottom: 20rpx;
+}
+
+.login .float_tab .info4 {
+    color: #333;
+    font-size: 12px;
+    line-height: 1.8;
+    text-indent: 40rpx;
+    margin-top: 20rpx;
+}
+
+.login .float_tab image {
+    width: 100%;
+    border-radius: 20rpx;
+}
+
+.login .float_button {
+    /*  top:70%;
+  left: 50rpx;
+  right: 50rpx;
+  margin:0rpx;
+  position: absolute;*/
+}
+
+.login .float_button button {
+    background-color: #4b0;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 2px;
+    font-size: 16px;
+    line-height: 45px;
+    height: 45px;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-align: center;
+}
+
+
+
+.index-head {
+    display: flex;
+    align-items: center;
+    height: 88rpx;
+    justify-content: space-between;
+    padding: 0 30rpx;
+    flex: 1 1;
+}
+
+.index-user {
+    display: flex;
+    align-items: center;
+    font-size: 24rpx;
+}
+
+.index-avatar {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    border: 1rpx solid rgb(228, 228, 228);
+}
+
+.index-user-name {
+    font-size: 30rpx;
+    max-width: 300rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -webkit-box-orient: vertical;
+    margin: 0 20rpx;
+}
+
+.index-member-img {
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 10rpx;
+}
+
+.index-search-cart {
+    display: flex;
+}
+
+.index-search-img {
+    width: 50rpx;
+    height: 50rpx;
+    margin-right: 30rpx;
+}
+
+.index-cart {
+    position: relative;
+    font-size: 20rpx;
+}
+
+.index-cart-img {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.index-cart view {
+    position: absolute;
+    right: 0;
+    top: -10rpx;
+    background: red;
+    color: #fff;
+    min-width: 30rpx;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.index-packge {
+    padding-bottom: 20rpx;
+}
+
+.packge-link {
+    font-size: 30rpx;
+    /*margin-left: 30rpx;*/
+    padding: 20rpx 30rpx;
+}
+
+.packge-join {
+    width: 300rpx;
+    border-radius: 40rpx;
+    text-align: center;
+    margin: auto;
+    font-size: 32rpx;
+    padding: 10rpx;
+
+}
+
+.topnav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: #FFF;
+}
+
+.search {
+    color: #A6A6A6;
+    background-color: #F6F7FB;
+    width: 90%;
+    text-align: center;
+    margin: 16rpx auto;
+    padding: 16rpx 0;
+    border-radius: 16rpx;
+    font-size: 28rpx;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-link {
+    vertical-align: middle;
+}
+
+.banner {
+    display: flex;
+    /*    border-top: 18rpx solid #F6F7FB;
+    border-bottom: 18rpx solid #F6F7FB;*/
+}
+
+.left-banner {
+    width: 375rpx;
+    height: 480rpx;
+}
+
+.left-banner image {
+    width: 375rpx;
+    height: 480rpx;
+}
+
+.right-banner {
+    width: 375rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-banner image {
+    width: 375rpx;
+    height: 240rpx;
+}
+
+.light {
+    color: #c28324;
+    border-bottom: 6rpx solid #c28324;
+}
+
+
+.item-good {
+    display: flex;
+    padding: 30rpx;
+    padding-bottom: 30rpx;
+    border-bottom: 0.5rpx solid #e5e5e5;
+    justify-content: space-around;
+    margin: 0 20rpx;
+}
+
+.good-cover {
+    width: 240rpx;
+    height: 240rpx;
+    margin-right: 20rpx;
+}
+
+.good-right {
+    flex: 1;
+    /*margin-bottom: 40rpx;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 240rpx;
+    width: 380rpx;
+
+}
+
+.good-index-name {
+    font-size: 28rpx;
+    line-height: 1.5;
+    /*width: 380rpx;*/
+    overflow: hidden;
+    /*    text-overflow: ellipsis;
+    white-space: nowrap;*/
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.good-short-name {
+    font-size: 26rpx;
+    /*width: 380rpx;*/
+    overflow: hidden;
+    /*    text-overflow: ellipsis;
+    white-space: nowrap;*/
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    color: #888888;
+}
+
+.good-prompt {
+    font-size: 24rpx;
+    color: #a6a6a6;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.good-price {
+    font-size: 32rpx;
+}
+
+.good-foot {
+    color: #a6a6a6;
+    font-size: 28rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.good-foot .foot-view:nth-child(2) {
+    margin-left: 40rpx;
+    vertical-align: middle;
+}
+
+.foot-view text {
+    vertical-align: middle;
+    font-size: 22rpx;
+}
+
+.good-foot image {
+    width: 32rpx;
+    height: 32rpx;
+    vertical-align: middle;
+}
+
+
+.buy-btn {
+    border: 2rpx solid #888888;
+    padding: 8rpx 16rpx;
+    font-size: 24rpx;
+    border-radius: 20rpx;
+    color: #666666;
+}

@@ -1,0 +1,243 @@
+<!-- 登录 -->
+<template name="login">
+	<view class="wx-popup" wx:if="{{loginPopup}}">
+		<view class="popup-container login">
+	        <view class="login-close-popup" bindtap="closeLoginPopup"></view>
+
+			<view class="login-popup-head">
+	        </view>
+	        <view class='float_tab'>
+	            <view class='info1'><text>微信授权</text></view>
+	            <view class='info2'><text>小程序将获取以下权限：</text></view>
+	            <view class='info3'><text>(如未授权，可能无法正常使用该小程序)</text></view>
+	            <view class='info4'><text>获取您的公开信息（昵称、头像等）</text></view>
+	        </view>
+	        <view class='float_button'>
+	            <button type="primary" size="default" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+	                确定授权
+	            </button>
+	        </view>
+		</view>
+	</view>
+</template>
+<template name="openSetting">
+	<view class="wx-popup" wx:if="{{openPopup}}">
+		<view class="popup-container login">
+	        <view class="login-close-popup" bindtap="closePopup"></view>
+
+			<view class="login-popup-head">
+	        </view>
+	        <view class='float_tab'>
+	            <view class='info1'><text>微信授权</text></view>
+	            <view class='info2'><text>小程序将获取以下权限：</text></view>
+	            <view class='info3'><text>(如未授权，可能无法正常使用该小程序)</text></view>
+	            <view class='info4'><text>获取您的当前位置</text></view>
+	        </view>
+	        <view class='float_button'>
+	            <button type="primary" size="default" open-type="openSetting" bindopensetting="openSetting">
+	                确定授权
+	            </button>
+	        </view>
+		</view>
+	</view>
+</template>
+<!-- 五星评价 -->
+<template name="star-evaluate">
+	<view class="star-view">
+		<view wx:for="{{[1,2,3,4,5]}}">
+			<block wx:if="{{ index < mark }}" >
+				<image bindtap="selStar" data-index="{{item}}" data-product-index="{{productIndex}}" class="star-img" src="../../images/star24_on@2x.png"></image>
+			</block>
+			<block wx:else >
+				<image bindtap="selStar" data-index="{{item}}" data-product-index="{{productIndex}}" class="star-img" src="../../images/star24_off@2x.png"></image>
+			</block>
+		</view>
+	</view>
+</template>
+
+<!-- 底部tabBar -->
+<template name="tab-Bar-view" >
+	<view class="tabBarView" style="height:{{tabBarData.tabH}}px;background:{{tabBarData.bg}}" >
+		<block wx:for="{{tabBarData.tabBarArr}}" >
+			<view catchtap="toTabBar" data-selected-id="{{tabBarData.tabBarId}}" data-tab-bar-url="{{ item.pagePath }}" data-tab-bar-id="{{item.id}}" class="tabBarItem" style="width: {{tabBarData.itemW}}">
+
+				<image class="tabBarImg" style="height:{{tabBarData.tabImg}}px; width:{{tabBarData.tabImg}}px" src="{{tabBarData.tabBarId==item.id ? item.selectedIconPath : item.iconPath }}"></image>
+
+				<view class="tabBarText" style="font-size:{{tabBarData.tabT}}px; color:{{ tabBarData.tabBarId==item.id ? tabBarData.selectedColor:tabBarData.color}}; ">{{item.text}}</view>
+			</view>
+		</block>
+	</view>
+</template>
+
+<!-- 收缩底部tabBar -->
+<template name="shrink-tab-bar" >
+	<view class="shrinkView" style="height:{{tabBarData.tabH}}px" >
+		<block wx:if="{{tabBarData.main}}">
+			<view class="tab-main" bindtap="shrinkTab" >
+				<image class="mainImg" style="height:{{tabBarData.main.imgW}}px;width:{{tabBarData.main.imgW}}px" src="{{tabBarData.main.status?tabBarData.main.mainImg:tabBarData.main.clickMainImg}}"></image>
+				<view class="mainText" >{{tabBarData.main.mainTex}}</view>
+			</view>
+		</block>
+		<view class="tab-shrink {{tabBarData.main.status?'active':''}}">
+			<view class="tab-shrink-body" style="background:{{tabBarData.bg}}">
+				<block wx:for="{{tabBarData.tabBarArr}}" >
+					<view catchtap="toTabBar" data-selected-id="{{tabBarData.tabBarId}}" data-tab-bar-url="{{ item.pagePath }}" data-index="{{index}}" data-tab-bar-id="{{item.id}}" class="tabBarItem" >
+					<!-- <block wx:if="{{item.img}}">
+						<image class="tabBarImg" style="height:{{tabBarData.tabImg}}px; width:{{tabBarData.tabImg}}px" src="{{tabBarData.tabBarId==item.id ? item.selectedIconPath : item.iconPath }}"></image>
+					</block> -->
+					<block wx:if="{{item.text}}" >
+						<view class="tab-shrink-text" style="color:{{tabBarData.tabBarId==item.id?tabBarData.selectedColor:tabBarData.color}}; font-size:{{tabBarData.tabT}}px">{{item.text}}</view>
+					</block>
+				</view>
+			</block>
+		</view>
+	</view>
+</view>
+</template>
+
+
+<!-- 广告轮播图 -->
+<template name="ad-swiper">
+	<view class="ad-view">
+		<!-- <block wx:if="{{swiperData.length==0}}">
+			<view class="ad-item">
+				<image class="ad-img" src="../../images/3.jpg" mode="scaleToFill"/>
+			</view>
+		</block> -->
+		<block wx:if="{{adSwiper.length>0}}">
+			<swiper class="ad-swiper" indicator-dots="true" autoplay="true" interval="3000" circular="true">
+				<block wx:for="{{adSwiper}}">
+					<swiper-item class="ad-item" bindtap="clickAdSwiper" data-url="{{item.url}}">
+						<image class="ad-img" src="{{item.image}}" mode="aspectFill" />
+					</swiper-item>
+				</block>
+			</swiper>
+		</block>
+	</view>
+</template>
+
+<!-- 正方形轮播图 -->
+<template name="square-swiper">
+	<view class="details-view">
+		<swiper class="details-swiper" indicator-dots="true" autoplay="true" interval="3000" circular="true">
+			<block wx:for="{{detailImg}}">
+				<swiper-item bindtap="clickSwiper">
+					<image class="details-img" src="{{item.url}}" mode=""/>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+</template>
+
+<!-- 矩形轮播图 -->
+<template name="rectangle-swiper">
+	<view class="rectangle-view">
+		<swiper class="rectangle-swiper" indicator-dots="true" autoplay="true" interval="3000" circular="true">
+			<block wx:for="{{detailImg}}">
+				<swiper-item bindtap="clickSwiper">
+					<image class="rectangle-img" src="{{item.url}}" mode=""/>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+</template>
+
+
+<!-- 导航菜单 -->
+<template name="nav">
+	<view class="nav">
+		<view wx:for="{{navData}}" bindtap="clickNav" class="nav-item" data-page="{{item.page}}">
+			<image class="nav-icon" src="{{item.icon}}"></image>
+			<view class="nav-name">{{item.name}}</view>
+		</view>
+	</view>
+</template>
+
+<template name="scroll-x-category">
+	<scroll-view scroll-x class="scroll-x-category">
+		<view wx:for="{{category}}" class="item-category {{index==lightIndex?'category-light':''}}" bindtap="selCategory" data-id="{{item.id}}" data-index="{{index}}">
+			{{item.name}}
+		</view>
+	</scroll-view>
+</template>
+
+<template name="scroll-x-packge">
+	<block wx:if="{{ myPackge.expiredInDays >= 0 && myPackge.products.length > 0 }}">
+		<scroll-view scroll-x class="scroll-x-packge">
+			<view wx:for="{{myPackge.products}}" class="item-packge" bindtap="productDetails" data-id="{{item.id}}" >
+				<image class="item-packge-img" src="{{item.cover}}"></image>
+				<view class="packge-name">{{item.name}}</view>
+				<!-- <view class="packge-price main-color">￥{{item.price}}</view> -->
+        <view class="packge-progress-line">
+          <view class="packge-bg-progress-line"></view>
+          <view class="packge-font-progress-line" style="width:{{item.matchRage ? item.matchRage + '%' : 0}}"></view>
+        </view>
+        <view class="packge-matchRage">{{item.matchRage ? '匹配度：' + item.matchRage + '%' : ''}}</view>
+			</view>
+		</scroll-view>
+    <view bindtap="joinCart" class="packge-join main-bg">整套加入购物车</view>
+	</block>
+	<!-- <block wx:elif="{{ myPackge.expiredInDays==0 && myPackge.products.length > 0 }}">
+		<view class="myPackge-tip">
+			<view>您超过7天没有到ISoftto门店检测了</view>
+			<view class="tip-text"></view>
+			<view class="index-appoint-btn" bindtap="openPage" data-url="../appoint/appoint?name=预约门店&store_type=store" data-open-type="navigate">立即预约</view>
+		</view>
+	</block> -->
+	<block wx:else>
+		<view class="myPackge-tip">
+			<view>专属套装是结合您的测试数据推荐您的专属产品</view>
+			<view class="tip-text">您尚未在i-Softto线下门店预约测试</view>
+			<view class="index-appoint-btn" bindtap="openPage" data-page="../appoint/appoint?name=预约门店&store_type=store" data-open-type="navigate">立即预约</view>
+		</view>
+	</block>
+	
+</template>
+
+<!-- 下拉列表 -->
+<template name="select">
+	<view class="select">
+		<view class="select-view">
+			<view class="select-option" bindtap="clickSelect" wx:if="{{selectData.options.length == 0}}">无预约</view>
+			<view class="select-option" bindtap="clickSelect" wx:elif="{{selectData.sel_index<0}}">直接付款</view>
+			<view class="select-option" bindtap="clickSelect" wx:elif="{{selectData.sel_index>-1}}" >{{selectData.options[selectData.sel_index].type}}</view>
+			<view class="select-arrow"></view>
+		</view>
+		<view class="options-view" hidden="{{selectData.showOption}}">
+			<view class="option" bindtap="selOption" data-id="{{-1}}" data-index="{{-1}}">直接付款</view>
+			<!-- <view class="select-option" bindtap="clickSelect" wx:elif="{{selectData.sel_index<0}}">直接付款</view> -->
+			<block wx:for="{{selectData.options}}">
+				<view class="option" bindtap="selOption" data-id="{{item.order_id}}" data-index="{{index}}">{{item.type}}</view>
+			</block>
+		</view>
+	</view>
+</template>
+
+<template name="popup">
+	<view class="opacity-view" wx:if="{{showPopup}}" bindtap="closePopup" data-title="closePopup"></view>
+</template>
+
+<!-- 活动 -->
+<template name="activity">
+	<view class="activity-view">
+		<image class="activity-cover" src="{{activity.cover}}" bindtap="goActivity" data-id="{{activity.id}}"></image>
+		<block wx:if="{{activity.goods}}">
+			<view class="activity-goods">
+				<view class="activity-good" wx:for="{{activity.goods}}" bindtap="productDetails" data-id="{{item.id}}">
+					<image class="good-img" src="{{item.img}}" mode="center"></image>
+					<text class="good-name">{{item.name}}</text>
+					<text class="good-price">￥{{item.price}}</text>
+				</view>
+			</view>
+		</block>
+	</view>
+</template>
+
+<!-- <block wx:for="{{tabBarArr}}" >
+			<view >
+				<view>{{item.text}}</view>
+				<view>
+					<image src="{{item.selectedIconPath}}"></image>
+				</view>
+			</view>
+		</block> -->

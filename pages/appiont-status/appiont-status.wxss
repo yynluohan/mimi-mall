@@ -1,0 +1,63 @@
+
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F6F7FB;
+}
+
+.appiont-status {
+    text-align: center;
+    margin: 50rpx 30rpx;
+    background-color: #FFF;
+    padding-top: 60rpx;
+    border-radius: 20rpx;
+    height: 550rpx;
+}
+
+.icon-font {
+    color: #FC5434;
+    font-size: 80rpx;
+    padding-top: 60rpx;
+}
+.close-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 150rpx;
+}
+.colse-icon {
+    background-color: #ff2d2d;
+    padding: 20rpx;
+    font-size: 60rpx;
+    color: #FFF;
+    border-radius: 50%;
+    margin-bottom: 50rpx;
+
+}
+.status {
+    margin: 40rpx 0;
+}
+
+.link {
+    font-size: 26rpx;
+    color: #505050;
+}
+
+.code {
+    padding: 60rpx 0;
+    font-size: 50rpx;
+}
+.btn {
+    width: 280rpx;
+    border: 1rpx solid #6c6c6c;
+    text-align: center;
+    margin: 0 auto;
+    padding: 16rpx;
+    border-radius: 40rpx;
+    color: #383838;
+    font-size: 30rpx;
+    background-color: #FFF;
+}
